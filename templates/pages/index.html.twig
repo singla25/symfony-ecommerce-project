@@ -1,9 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Hello Page
+    Home Page
 {% endblock %}
 
 {% block body %}
+
     {{ include('pages/header.html.twig') }}
+
+    <div id="hero" class="d-flex flex-column justify-content-center align-items-start text-start px-5" style="height: 90vh; background-size: cover; background-position: center;">
+        <h4 class="text-muted">Trade-in-offer</h4>
+        <h2 class="fw-bold">Super value Deals</h2>
+        <h1 class="fw-bold display-5 text-success">On all products</h1>
+        <p class="lead">Save more with coupons & up to 70% off</p>
+        <a href="{{ path('shop_page') }}" class="shopNow btn">Shop Now</a>
+    </div>
+
+    <section id="features">
+        <div></div>
+    </section>
+
 {% endblock %}
