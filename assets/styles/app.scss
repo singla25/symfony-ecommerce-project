@@ -1,6 +1,7 @@
 @import "bootstrap/scss/bootstrap.scss";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -10,48 +11,6 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-/* Global Styles */
-
-h1 {
-    font-size: 50px;
-    line-height: 64px;
-    color: #222;
-}
-
-h2 {
-    font-size: 46px;
-    line-height: 54px;
-    color: #222;
-}
-
-h4 {
-    font-size: 20px;
-    color: #222;
-}
-
-h6 {
-    font-weight: 700;
-    font-size: 12px;
-}
-
-p {
-    font-size: 16px;
-    color: #465b52;
-    margin: 15px 0 20px 0;
-}
-
-.section-p1 {
-    padding: 40px 80px;
-}
-
-.section-m1 {
-    margin: 40px 0;
-}
-
-body {
-    width: 100%;
 }
 
 /* header */
@@ -92,18 +51,16 @@ body {
 }
 
 /* Home Page */
-#hero {
-    background-image: url("http://localhost:8000/img/hero.png");
+.feature-card {
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.shopNow {
-    background-image: url("http://localhost:8000/img/button.png");
-    background-color: transparent;
-    color: #088178;
-    border: none;
-    padding: 14px 80px 14px 65px;
-    font-weight: 700;
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
 }
+
+
 
 
 
