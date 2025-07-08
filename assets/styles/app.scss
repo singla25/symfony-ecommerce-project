@@ -13,7 +13,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* header */
+// header
 .navbar {
     background: #E3E6F3;
     box-shadow:  0 5px 15px rgba(0,0,0,0.06);
@@ -50,7 +50,21 @@ html {
     width: 100%;
 }
 
-/* Home Page */
+// footer
+footer a:hover {
+    color: #ffc107 !important; /* yellowish highlight on hover */
+    transition: color 0.3s ease;
+}
+
+footer img {
+    transition: transform 0.3s ease;
+}
+footer img:hover {
+    transform: scale(1.05);
+}
+
+
+// home page
 .feature-card {
     transition: transform 0.3s, box-shadow 0.3s;
 }

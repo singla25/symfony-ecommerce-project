@@ -20,7 +20,7 @@
             <a href="{{ path('shop_page') }}" class="btn btn-success btn-lg rounded-pill px-4 fw-semibold shadow">Shop Now</a>
         </div>
     </div>
-    
+
     <section class="py-5 bg-light features">
         <div class="px-5">
             <div class="row g-4 justify-content-center">
@@ -200,7 +200,24 @@
         </div>
     </section>
 
-    <section></section>
+    <section id="newsletter" class="py-5" style="background: linear-gradient(135deg, #0c2a4d, #183d5a);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h2 class="text-white fw-bold mb-2">Sign Up For Newsletters</h2>
+                    <p class="text-white-50 mb-0">Get E-mail updates about our latest shop and <span class="text-warning fw-semibold">special offers.</span></p>
+                </div>
+{#                <div class="col-md-6">#}
+{#                    {{ form_start(newsletterForm, {'attr': {'class': 'd-flex'}}) }}#}
+{#                    {{ form_widget(newsletterForm.email, {'attr': {'class': 'form-control me-2 rounded-pill px-3', 'placeholder': 'Your email address'}}) }}#}
+{#                    <button type="submit" class="btn btn-success rounded-pill px-4 shadow">Sign Up</button>#}
+{#                    {{ form_end(newsletterForm) }}#}
+{#                </div>#}
+            </div>
+        </div>
+    </section>
 
 
+
+    {{ include('pages/footer.html.twig') }}
 {% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <footer class="bg-secondary text-white p-5">
+        <div class="row pb-5">
+            <div class="col text-center text-md-start">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="max-width: 180px;">
+            </div>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-12 col-md-4 text-md-start">
+                <h5>Contact</h5>
+                <p><strong>Address:</strong> #123, Phase 7, Sector-74, Mohali</p>
+                <p><strong>Phone:</strong> +1 987-789-9876</p>
+                <p><strong>Hours:</strong> 10:00 - 18:00 Mon - Fri</p>
+            </div>
+
+            <div class="col-6 col-md-2 text-md-start">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Delivery Info</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 text-md-start">
+                <h5>My Account</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white-50 text-decoration-none">Sign In</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">View Cart</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Wishlist</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Track Order</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Help</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-4 text-md-start">
+                <h5>Install App</h5>
+                <p>From App Store or Google Play</p>
+                <div class="d-flex mb-3">
+                    <img src="{{ asset('img/pay/app.jpg') }}" alt="App Store" class="me-2 shadow" style="height: 55px; border-radius: 8px;">
+                    <img src="{{ asset('img/pay/play.jpg') }}" alt="Google Play" class="shadow" style="height: 55px; border-radius: 8px;">
+                </div>
+                <p class="fw-semibold">Secured Payment Gateways</p>
+                <img src="{{ asset('img/pay/pay.png') }}" alt="Payment Methods" style="max-height: 50px;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h5 class="fw-bold mb-3">Follow Us</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-white fs-4"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary mt-2">
+        <p class="text-center text-white-50 mb-0 px-3">&copy; 2025 Singla's Project — All rights reserved.</p>
+    </footer>
+{% endblock %}
