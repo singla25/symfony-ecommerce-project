@@ -7,5 +7,52 @@
 {% block body %}
     {{ include('pages/header.html.twig') }}
 
+    <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
+        <img src="{{ asset('img/banner/b19.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+
+        <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
+            <h2 class="fw-bold mb-2 display-5">#readMore</h2>
+            <p class="lead mb-4">Read more about our Designs, Products</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            {% set blogs = [
+                { date: '13/01', title: 'The Cotton-Jersey Zip-Up Hoodie', desc: 'Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony.', img: 'b1.jpg' },
+                { date: '18/02', title: 'Classic Cotton Shirt', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.', img: 'b2.jpg' },
+                { date: '27/03', title: 'Summer Collection Trends', desc: 'Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', img: 'b3.jpg' },
+                { date: '10/04', title: 'The Cotton-Jersey Zip-Up Hoodie', desc: 'Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony.', img: 'b4.jpg' },
+                { date: '15/05', title: 'Classic Cotton Shirt', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.', img: 'b5.jpg' },
+                { date: '02/06', title: 'Summer Collection Trends', desc: 'Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', img: 'b6.jpg' },
+                { date: '25/07', title: 'The Cotton-Jersey Zip-Up Hoodie', desc: 'Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony.', img: 'b7.jpg' },
+            ] %}
+
+            {% for blog in blogs %}
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-5 position-relative mb-5">
+                        <img src="{{ asset('img/blog/' ~ blog.img) }}" alt="{{ blog.title }}"
+                             class="img-fluid rounded shadow"
+                             style="height: 300px; object-fit: cover; width: 100%;">
+                        <div class="blogDate text-dark fw-bold"
+                             style="font-size: 4rem; opacity: 0.6;">{{ blog.date }}</div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <h4 class="fw-bold">{{ blog.title }}</h4>
+                        <p class="text-muted">{{ blog.desc }}</p>
+                        <a href="#" class="text-decoration-none fw-bold">Continue reading <span class="ms-1"> → </span></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="d-flex justify-content-center my-4">
+        <a href="#" class="btn btn-outline-success mx-1">1</a>
+        <a href="#" class="btn btn-outline-success mx-1">2</a>
+        <a href="#" class="btn btn-outline-success mx-1"><i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
     {{ include('pages/footer.html.twig') }}
 {% endblock %}

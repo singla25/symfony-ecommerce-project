@@ -75,6 +75,29 @@ footer img:hover {
     box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
 }
 
+// Product Details
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.btn-success:hover {
+    background-color: #198754; /* slightly darker green on hover */
+}
+
+// Blog Page
+.blogDate {
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+
 
 
 

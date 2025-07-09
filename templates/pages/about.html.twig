@@ -7,5 +7,14 @@
 {% block body %}
     {{ include('pages/header.html.twig') }}
 
+    <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
+        <img src="{{ asset('img/banner/b19.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+
+        <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
+            <h2 class="fw-bold mb-2 display-5">#KnowUsMore</h2>
+            <p class="lead mb-4">More than just a brand — we are a journey of creativity, craftsmanship, and connection.</p>
+        </div>
+    </div>
+
     {{ include('pages/footer.html.twig') }}
 {% endblock %}

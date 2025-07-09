@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Product Details
+{% endblock %}
+
+{% block body %}
+    {{ include('pages/header.html.twig') }}
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 text-center">
+                    <div class="mx-auto" style="width: 400px; height: 400px; overflow: hidden;">
+                        <img id="mainImage" src="{{ asset('img/products/f1.jpg') }}" alt="Main Image"
+                             class="img-fluid h-100 w-100" style="object-fit: cover;">
+                    </div>
+
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                        {% set productImages = [
+                            { img: 'f1.jpg' },
+                            { img: 'f2.jpg' },
+                            { img: 'f3.jpg' },
+                            { img: 'f4.jpg' }
+                        ] %}
+
+                        {% for productImage in productImages %}
+                            <img src="{{ asset('img/products/' ~ productImage.img) }}" alt="Thumbnail"
+                                 class="img-thumbnail"
+                                 style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                                 onclick="document.getElementById('mainImage').src = this.src">
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Info Column -->
+                <div class="col-md-6">
+                    <h3 class="fw-bold">Men's Fashion T-Shirt</h3>
+                    <h4 class="text-success mb-3">$139.00</h4>
+
+                    <div class="mb-3">
+                        <select class="form-select w-50">
+                            <option selected>Select Size</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">Extra Large</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 d-flex" style="max-width: 300px;">
+                        <input type="number" class="form-control rounded-start border-success border-2 text-center"
+                               value="1" min="1" style="height: 48px; max-width: 80px;">
+
+                        <button class="btn btn-success rounded-end fw-bold px-4 shadow mx-2"
+                                style="height: 48px; white-space: nowrap;">
+                            Add To Cart
+                        </button>
+                    </div>
+
+
+                    <h5 class="mt-4">Product Details</h5>
+                    <p class="text-muted">
+                        The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton.
+                        This classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder,
+                        and a seamless double-needle collar, and available in a range of colors, it offers it all in the ultimate head-turning package.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-warning text-center">More Related Products</h2>
+            <p class="text-muted text-center mb-5">Collection of New Modern Design</p>
+            <div class="row g-4">
+                {% set relatedProducts = [
+                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$40', img: 'n1.jpg', rating: 4 },
+                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'n2.jpg', rating: 5 },
+                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$45', img: 'n3.jpg', rating: 5 },
+                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$55', img: 'n4.jpg', rating: 4 },
+                ] %}
+
+                {% for relatedProduct in relatedProducts %}
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card product-card h-100 border-0 shadow-sm overflow-hidden position-relative">
+                            {# Optional New badge #}
+                            <span class="badge bg-danger position-absolute m-2">New</span>
+
+                            <img src="{{ asset('img/products/' ~ relatedProduct.img) }}" alt="{{ relatedProduct.productName }}" class="card-img-top">
+                            <div class="card-body d-flex flex-column justify-content-between p-3">
+                                <span class="small text-uppercase text-dark">{{ relatedProduct.brandName }}</span>
+                                <h5 class="fw-bold my-2">{{ relatedProduct.productName }}</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-auto">
+                                    <div class="text-start">
+                                        <div class="rating text-warning mb-1">
+                                            {% for i in 1..5 %}
+                                                {% if i <= relatedProduct.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <h5 class="text-success mb-0 text-nowrap">{{ relatedProduct.price }}</h5>
+                                    </div>
+                                    <a href="#" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    {{ include('pages/footer.html.twig') }}
+{% endblock %}

@@ -37,6 +37,12 @@ class MainController extends AbstractController
         return $this->render('pages/shop.html.twig');
     }
 
+    #[Route('/productDetails', name: 'productDetails_page')]
+    public function productDetails(): Response
+    {
+        return $this->render('pages/productDetails.html.twig');
+    }
+
     #[Route('/blog', name: 'blog_page')]
     public function blog(): Response
     {
