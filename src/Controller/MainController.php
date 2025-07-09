@@ -6,8 +6,6 @@ use App\Entity\ContactUs;
 use App\Entity\NewLetter;
 use App\Form\ContactUsType;
 use App\Form\NewLetterType;
-use App\Repository\ContactUsRepository;
-use App\Repository\NewLetterRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

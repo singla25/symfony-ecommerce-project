@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ContactUs;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,11 @@ class ContactUsType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('email')
+            ->add('email', EmailType::class, [
+                'label' => 'Email',
+                'attr' => ['placeholder' => 'Enter your email'],
+                'required' => true,
+            ])
             ->add('phoneNumber')
             ->add('subject')
             ->add('message')
