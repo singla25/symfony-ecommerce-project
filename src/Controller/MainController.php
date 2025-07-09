@@ -50,9 +50,21 @@ class MainController extends AbstractController
     }
 
     #[Route('/about', name: 'about_page')]
-    public function about(): Response
+    public function about(Request $request, NewLetterRepository $newLetterRepository, EntityManagerInterface $em): Response
     {
-        return $this->render('pages/about.html.twig');
+        $newLetterAbout = new NewLetter();
+        $form = $this->createForm(NewLetterType::class, $newLetterAbout);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($newLetterAbout);
+            $em->flush();
+            return $this->redirectToRoute('about_page');
+        }
+        return $this->render('pages/about.html.twig', [
+            'form' => $form,
+            'newLetter' => $newLetterAbout,
+        ]);
     }
 
     #[Route('/contact', name: 'contact_page')]

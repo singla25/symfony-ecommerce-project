@@ -8,13 +8,91 @@
     {{ include('pages/header.html.twig') }}
 
     <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
-        <img src="{{ asset('img/banner/b19.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+        <img src="{{ asset('img/about/banner.png') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
 
         <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
             <h2 class="fw-bold mb-2 display-5">#KnowUsMore</h2>
             <p class="lead mb-4">More than just a brand — we are a journey of creativity, craftsmanship, and connection.</p>
         </div>
     </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6 text-center">
+                    <img src="{{ asset('img/about/a6.jpg') }}" alt="About Us Image" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3">Who We Are?</h2>
+                    <p class="text-muted">
+                        At <strong>Cara</strong>, we believe fashion is more than just clothing — it’s a statement, an expression of who you are.
+                        Our mission is to bring you unique, high-quality pieces that empower your style and reflect your personality.
+                        From timeless classics to trend-setting designs, we curate every product with care and passion.
+                    </p>
+                    <p class="text-muted">
+                        We started our journey with a simple goal: make premium fashion accessible to everyone.
+                        With a dedicated team and a strong focus on customer satisfaction, we’re here to redefine your shopping experience, one outfit at a time.
+                    </p>
+                    <a href="{{ path('shop_page') }}" class="btn btn-outline-success mt-3 px-4 py-2">Explore Our Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Download Our <a href="#" class="text-success text-decoration-none">App</a></h2>
+            <p class="text-muted mb-4">
+                Experience Cara on the go! Enjoy seamless shopping, exclusive offers, and early access to our newest collections right from your phone.
+            </p>
+            <div class="ratio ratio-16x9 rounded shadow overflow-hidden" style="max-width: 800px; margin: 0 auto;">
+                <video src="{{ asset('img/about/1.mp4') }}" controls poster="{{ asset('img/about/a1.png') }}"></video>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 features">
+        <div class="px-5">
+            <div class="row g-4 justify-content-center">
+                {% set featureBoxs = [
+                    { name: 'Free Shipping', img: 'f1.png'},
+                    { name: 'Online Order', img: 'f2.png'},
+                    { name: 'Save Money', img: 'f3.png'},
+                    { name: 'Promotions', img: 'f4.png'},
+                    { name: 'Happy Sell', img: 'f5.png'},
+                    { name: '24/7 Support', img: 'f6.png'},
+                ] %}
+
+                {% for featureBox in featureBoxs %}
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card border-0 shadow-sm feature-card h-100 text-center p-3">
+                            <div class="feature-img-wrapper mx-auto mb-3 bg-white shadow" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                <img src="{{ asset('img/features/' ~ featureBox.img) }}" alt="{{ featureBox.name }}" class="img-fluid" style="max-height: 60px;">
+                            </div>
+                            <h5 class="fw-semibold">{{ featureBox.name }}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="newLetter py-5" style="background: linear-gradient(135deg, #0c2a4d, #183d5a);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h2 class="text-white fw-bold mb-2">Sign Up For Newsletters</h2>
+                    <p class="text-white-50 mb-0">Get E-mail updates about our latest shop and <span class="text-warning fw-semibold">special offers.</span></p>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(form, {'attr': {'class': 'd-flex'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control me-2 px-3', 'placeholder': 'Your email address'}}) }}
+                    <button type="submit" class="btn btn-success px-4 shadow">Subscribe Now</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{ include('pages/footer.html.twig') }}
 {% endblock %}
