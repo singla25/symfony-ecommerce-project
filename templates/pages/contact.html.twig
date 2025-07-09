@@ -7,7 +7,121 @@
 {% block body %}
     {{ include('pages/header.html.twig') }}
 
-    
+    <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
+        <img src="{{ asset('img/about/banner.png') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+
+        <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
+            <h2 class="fw-bold mb-2 display-5">#GetInTouch</h2>
+            <p class="lead mb-4">Reach out to us — we’re here to help and happy to connect.</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-6">
+                    <h6 class="text-uppercase text-muted">Get In Touch</h6>
+                    <h3 class="fw-bold mb-4">Visit us or Contact us today</h3>
+
+                    <h5 class="fw-semibold">Head Office</h5>
+                    <p><i class="fas fa-map-marker-alt me-2 text-success"></i> Punjab University, Chandigarh, India</p>
+                    <p><i class="fas fa-envelope me-2 text-success"></i> info@cara.com</p>
+                    <p><i class="fas fa-phone me-2 text-success"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-clock me-2 text-success"></i> Monday to Saturday, 9:00 AM – 6:00 PM</p>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="ratio ratio-4x3 rounded shadow">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.159236780957!2d76.76355141504598!3d30.762242093732732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed42f038a8e7%3A0x3ad3a2ba5d4fc113!2sPanjab%20University!5e0!3m2!1sen!2sin!4v1655217694219!5m2!1sen!2sin"
+                            width="600"
+                            height="450"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <!-- Contact form -->
+                <div class="col-md-7 bg-light p-4 rounded shadow-sm">
+                    <h2 class="text-success mb-2">Leave a message</h2>
+                    <p class="fw-bold text-muted mb-4">We love to hear from you ❤️</p>
+
+                    {{ form_start(contactForm) }}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            {{ form_row(contactForm.name, {'attr': {'class': 'form-control', 'placeholder': 'Your Name'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(contactForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Your E-mail'}}) }}
+                        </div>
+                    </div>
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-6">
+                            {{ form_row(contactForm.phoneNumber, {'attr': {'class': 'form-control', 'placeholder': 'Your Phone Number'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(contactForm.subject, {'attr': {'class': 'form-control', 'placeholder': 'Subject'}}) }}
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        {{ form_row(contactForm.message, {'attr': {'class': 'form-control', 'placeholder': 'Write your message here...', 'rows': 5}}) }}
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-success px-5 py-2 shadow">Send Message</button>
+                    </div>
+                    {{ form_end(contactForm) }}
+                </div>
+
+                <!-- Team contacts -->
+                <div class="col-md-5">
+                    {% set contacts = [
+                        { img: '1.png', name: 'John Doe', role: 'Senior Marketing Manager', phone: '+000 123 000 7788', email: 'contact@example.com'},
+                        { img: '2.png', name: 'William Smith', role: 'Sales Head', phone: '+000 123 000 7788', email: 'sales@example.com'},
+                        { img: '3.png', name: 'Emma Stone', role: 'Support Manager', phone: '+000 123 000 7788', email: 'support@example.com'},
+                    ] %}
+
+                    {% for contact in contacts %}
+                        <div class="mb-4 d-flex align-items-center p-2 border rounded shadow-sm bg-white">
+                            <img src="{{ asset('img/people/' ~ contact.img) }}" alt="{{ contact.name }}" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0 fw-bold">{{ contact.name }}</h6>
+                                <small class="text-muted">{{ contact.role }}</small><br>
+                                <small>📞 <a href="tel:{{ contact.phone }}" class="text-decoration-none text-dark">{{ contact.phone }}</a></small><br>
+                                <small>✉️ <a href="mailto:{{ contact.email }}" class="text-decoration-none text-dark">{{ contact.email }}</a></small>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newLetter py-5" style="background: linear-gradient(135deg, #0c2a4d, #183d5a);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h2 class="text-white fw-bold mb-2">Sign Up For Newsletters</h2>
+                    <p class="text-white-50 mb-0">Get E-mail updates about our latest shop and <span class="text-warning fw-semibold">special offers.</span></p>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(newsletterForm, {'attr': {'class': 'd-flex'}}) }}
+                    {{ form_widget(newsletterForm.email, {'attr': {'class': 'form-control me-2 px-3', 'placeholder': 'Your email address'}}) }}
+                    <button type="submit" class="btn btn-success px-4 shadow">Subscribe Now</button>
+                    {{ form_end(newsletterForm) }}
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{ include('pages/footer.html.twig') }}
 {% endblock %}

@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\ContactUs;
 use App\Entity\NewLetter;
+use App\Form\ContactUsType;
 use App\Form\NewLetterType;
+use App\Repository\ContactUsRepository;
 use App\Repository\NewLetterRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'home_page')]
-    public function home(Request $request, NewLetterRepository $newLetterRepository, EntityManagerInterface $em): Response
+    public function home(Request $request, EntityManagerInterface $em): Response
     {
         $newLetter = new NewLetter();
         $form = $this->createForm(NewLetterType::class, $newLetter);
@@ -50,7 +53,7 @@ class MainController extends AbstractController
     }
 
     #[Route('/about', name: 'about_page')]
-    public function about(Request $request, NewLetterRepository $newLetterRepository, EntityManagerInterface $em): Response
+    public function about(Request $request, EntityManagerInterface $em): Response
     {
         $newLetterAbout = new NewLetter();
         $form = $this->createForm(NewLetterType::class, $newLetterAbout);
@@ -68,9 +71,34 @@ class MainController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact_page')]
-    public function contact(): Response
+    public function contact(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('pages/contact.html.twig');
+        // First form: Contact form
+        $contactUs = new ContactUs();
+        $contactForm = $this->createForm(ContactUsType::class, $contactUs);
+        $contactForm->handleRequest($request);
+
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            $em->persist($contactUs);
+            $em->flush();
+            return $this->redirectToRoute('contact_page');
+        }
+
+        // Second form: Newsletter form
+        $newsletter = new NewLetter();
+        $newsletterForm = $this->createForm(NewLetterType::class, $newsletter);
+        $newsletterForm->handleRequest($request);
+
+        if ($newsletterForm->isSubmitted() && $newsletterForm->isValid()) {
+            $em->persist($newsletter);
+            $em->flush();
+            return $this->redirectToRoute('contact_page');
+        }
+
+        return $this->render('pages/contact.html.twig', [
+            'contactForm' => $contactForm->createView(),
+            'newsletterForm' => $newsletterForm->createView(),
+        ]);
     }
 
     #[Route('/cart', name: 'cart_page')]
