@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/user', name: 'user_')]
 class UserController extends AbstractController
 {
-    #[Route('/home', name: 'home_page')]
+    #[Route('/', name: 'home_page')]
     public function home(Request $request, EntityManagerInterface $em): Response
     {
         $newsLetter = new NewLetter();

@@ -1,8 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/internal_base.html.twig' %}
 
-{% block title %}Admin Page{% endblock %}
+{% block userContent %}
 
-{% block body %}
     <div class="container my-5">
         <h2 class="text-center text-success mb-5 fw-bold">Admin Page</h2>
         <div class="row justify-content-center">
@@ -12,11 +11,14 @@
                         <h4 class="mb-0">Add New Product</h4>
                     </div>
                     <div class="card-body p-5 bg-white">
-                        {{ include('admin/productRegisterForm.html.twig') }}
+                        {{ include('admin/shop/productRegisterForm.html.twig') }}
                     </div>
                 </div>
             </div>
         </div>
-        {{ include('admin/productTable.html.twig') }}
+        {{ include('admin/shop/productTable.html.twig') }}
     </div>
+
 {% endblock %}
+
+

@@ -6,12 +6,14 @@
     {% endblock %}
 
     {% block navbar %}
+        {{ include('admin/base/navbar.html.twig') }}
     {% endblock %}
 
-    {% block adminContent %}
+    {% block userContent %}
     {% endblock %}
 
     {% block footer %}
+        {{ include('admin/base/footer.html.twig') }}
     {% endblock %}
 
 {% endblock %}
