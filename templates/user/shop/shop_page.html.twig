@@ -1,0 +1,28 @@
+{% extends 'user/internal_base.html.twig' %}
+
+{% block userContent %}
+    <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
+        <img src="{{ asset('img/banner/b1.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+
+        <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
+            <h2 class="fw-bold mb-2 display-5">#StayHome</h2>
+            <p class="lead mb-4">Save more with coupons & up to 70% off</p>
+        </div>
+    </div>
+
+    <section class="py-5 bg-light featuredProducts">
+        <div class="container">
+          {{ include('user/shop/shop_page_listing.html.twig') }}
+        </div>
+    </section>
+
+    <section class="d-flex justify-content-center my-4">
+        <a href="#" class="btn btn-outline-success mx-1">1</a>
+        <a href="#" class="btn btn-outline-success mx-1">2</a>
+        <a href="#" class="btn btn-outline-success mx-1"><i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+    <div class="marquee mt-4 bg-success text-white py-2">
+        <p class="mb-0">Enjoy Free Shipping On All Orders Over $50 — Shop Now And Elevate Your Style With Cara! ✨</p>
+    </div>
+{% endblock %}

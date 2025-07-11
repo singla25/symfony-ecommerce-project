@@ -1,11 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/internal_base.html.twig' %}
 
-{% block title %}
-    About Us
-{% endblock %}
-
-{% block body %}
-    {{ include('pages/header.html.twig') }}
+{% block userContent %}
 
     <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
         <img src="{{ asset('img/about/banner.png') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
@@ -33,7 +28,7 @@
                         We started our journey with a simple goal: make premium fashion accessible to everyone.
                         With a dedicated team and a strong focus on customer satisfaction, we’re here to redefine your shopping experience, one outfit at a time.
                     </p>
-                    <a href="{{ path('shop_page') }}" class="btn btn-outline-success mt-3 px-4 py-2">Explore Our Collection</a>
+                    <a href="{{ path('user_shop_page') }}" class="btn btn-outline-success mt-3 px-4 py-2">Explore Our Collection</a>
                 </div>
             </div>
         </div>
@@ -94,5 +89,5 @@
         </div>
     </section>
 
-    {{ include('pages/footer.html.twig') }}
 {% endblock %}
+

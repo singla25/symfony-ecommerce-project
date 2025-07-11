@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block headerbar %}
+    {% endblock %}
+
+    {% block navbar %}
+        {{ include('user/base/navbar.html.twig') }}
+    {% endblock %}
+
+    {% block userContent %}
+    {% endblock %}
+
+    {% block footer %}
+        {{ include('user/base/footer.html.twig') }}
+    {% endblock %}
+
+{% endblock %}
+

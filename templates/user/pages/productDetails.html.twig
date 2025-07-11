@@ -1,11 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/internal_base.html.twig' %}
 
-{% block title %}
-    Product Details
-{% endblock %}
-
-{% block body %}
-    {{ include('pages/header.html.twig') }}
+{% block userContent %}
 
     <section class="py-5">
         <div class="container">
@@ -117,6 +112,5 @@
         </div>
     </section>
 
-
-    {{ include('pages/footer.html.twig') }}
 {% endblock %}
+

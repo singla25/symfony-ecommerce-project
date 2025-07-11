@@ -1,11 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/internal_base.html.twig' %}
 
-{% block title %}
-    Cart
-{% endblock %}
-
-{% block body %}
-    {{ include('pages/header.html.twig') }}
+{% block userContent %}
 
     <div class="position-relative text-center w-100" style="height: 30vh; overflow: hidden;">
         <img src="{{ asset('img/banner/b16.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
@@ -16,6 +11,4 @@
         </div>
     </div>
 
-
-    {{ include('pages/footer.html.twig') }}
 {% endblock %}

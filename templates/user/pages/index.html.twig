@@ -1,0 +1,213 @@
+{% extends 'user/internal_base.html.twig' %}
+
+{% block userContent %}
+
+    <div id="hero" class="position-relative w-100" style="height: 100vh; overflow: hidden;">
+        <img src="{{ asset('img/hero.png') }}" alt="Hero Image" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
+        <div class="position-absolute top-50 start-0 translate-middle-y px-5 text-white" style="max-width: 600px;">
+            <h4 class="mb-2 text-light">Trade-in-offer</h4>
+            <h2 class="fw-bold mb-2 display-5">Super Value Deals</h2>
+            <h1 class="fw-bold text-success mb-3 display-3">On all products</h1>
+            <p class="lead mb-4">Save more with coupons & up to 70% off</p>
+            <a href="{{ path('user_shop_page') }}" class="btn btn-success btn-lg rounded-pill px-4 fw-semibold shadow">Shop Now</a>
+        </div>
+    </div>
+
+    <section class="py-5 bg-light features">
+        <div class="px-5">
+            <div class="row g-4 justify-content-center">
+                {% set featureBoxs = [
+                    { name: 'Free Shipping', img: 'f1.png'},
+                    { name: 'Online Order', img: 'f2.png'},
+                    { name: 'Save Money', img: 'f3.png'},
+                    { name: 'Promotions', img: 'f4.png'},
+                    { name: 'Happy Sell', img: 'f5.png'},
+                    { name: '24/7 Support', img: 'f6.png'},
+                ] %}
+
+                {% for featureBox in featureBoxs %}
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card border-0 shadow-sm feature-card h-100 text-center p-3">
+                            <div class="feature-img-wrapper mx-auto mb-3 rounded-circle bg-white shadow" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                <img src="{{ asset('img/features/' ~ featureBox.img) }}" alt="{{ featureBox.name }}" class="img-fluid" style="max-height: 60px;">
+                            </div>
+                            <h5 class="fw-semibold">{{ featureBox.name }}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light featuredProducts">
+        <div class="container">
+            <h2 class="fw-bold text-primary text-center">Product Features</h2>
+            <p class="text-muted text-center mb-5">Summer Collection New Modern Design</p>
+            <div class="row g-4">
+                {% set productFeatures = [
+                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'f1.jpg', rating: 4},
+                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$30', img: 'f2.jpg', rating: 5},
+                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$40', img: 'f3.jpg', rating: 3},
+                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$45', img: 'f4.jpg', rating: 4},
+                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$35', img: 'f5.jpg', rating: 5},
+                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$70', img: 'f6.jpg', rating: 3},
+                    { brandName: 'nike', productName: 'Cotton Astronaut Pants', price: '$50', img: 'f7.jpg', rating: 4},
+                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$65', img: 'f8.jpg', rating: 5},
+                ] %}
+
+                {% for productFeature in productFeatures %}
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card product-card h-100 border-0 shadow-sm">
+                            <img src="{{ asset('img/products/' ~ productFeature.img) }}" alt="{{ productFeature.productName }}" class="card-img-top" style="height: 300px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <span class="text-muted small text-uppercase">{{ productFeature.brandName }}</span>
+                                <h5 class="fw-bold my-2">{{ productFeature.productName }}</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-auto">
+                                    <div class="text-start">
+                                        <div class="rating text-warning mb-1">
+                                            {% for i in 1..productFeature.rating %}
+                                                <i class="fas fa-star"></i>
+                                            {% endfor %}
+                                            {#    1..productFeature.rating → creates a range from 1 to product's rating.    #}
+                                        </div>
+                                        <h5 class="text-success mb-0">{{ productFeature.price }}</h5>
+                                    </div>
+                                    <a href="#" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5 banner1">
+        <div class="card text-bg-dark border-0">
+            <img src="{{ asset('img/banner/b2.jpg') }}" class="card-img" alt="Banner Image" style="height: 400px; object-fit: cover;">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center p-5" style="background: rgba(0, 0, 0, 0.6);">
+                <h4 class="text-uppercase text-white">Repair Services</h4>
+                <h2 class="fw-bold text-white text-center">Up to <span class="text-warning">70% Off</span> <br> All T-Shirts & Accessories</h2>
+                <a href="#" class="btn btn-warning btn-lg rounded-pill mt-3 px-4 fw-semibold">Explore More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light newArrivals">
+        <div class="container">
+            <h2 class="fw-bold text-primary text-center">New Arrivals</h2>
+            <p class="text-muted text-center mb-5">Collection of New Modern Design</p>
+            <div class="row g-4">
+                {% set newArrivals = [
+                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$40', img: 'n1.jpg', rating: 4 },
+                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'n2.jpg', rating: 5 },
+                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$45', img: 'n3.jpg', rating: 4 },
+                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$55', img: 'n4.jpg', rating: 4 },
+                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$65', img: 'n5.jpg', rating: 5 },
+                    { brandName: 'puma', productName: 'Cotton Astronaut Short', price: '$35', img: 'n6.jpg', rating: 5 },
+                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$60', img: 'n7.jpg', rating: 4 },
+                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'n8.jpg', rating: 5 },
+                ] %}
+
+                {% for newArrival in newArrivals %}
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card product-card h-100 border-0 shadow-sm">
+                            <img src="{{ asset('img/products/' ~ newArrival.img) }}" alt="{{ newArrival.productName }}" class="card-img-top" style="height: 300px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between p-3">
+                                <span class="text-muted small text-uppercase">{{ newArrival.brandName }}</span>
+                                <h5 class="fw-bold my-2">{{ newArrival.productName }}</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-auto">
+                                    <div class="text-start">
+                                        <div class="rating text-warning mb-1">
+                                            {% for i in 1..5 %}
+                                                {% if i <= newArrival.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <h5 class="text-success mb-0 text-nowrap">{{ newArrival.price }}</h5>
+                                    </div>
+                                    <a href="#" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4 banners2">
+        <div class="px-4">
+            <div class="row g-4">
+                {% set banners = [
+                    {img: 'b17.jpg', title: 'crazy deals', heading: 'buy 1 get 1 free', desc: 'The best classic dress is on sale at caro', btn: 'Shop Now', btnClass: 'btn btn-light'},
+                    {img: 'b10.jpg', title: 'spring/summer', heading: 'upcoming season', desc: 'The best classic dress is on sale at caro', btn: 'Collection', btnClass: 'btn btn-dark'}
+                ] %}
+
+                {% for banner in banners %}
+                    <div class="col-12 col-md-6">
+                        <div class="card text-bg-dark border-0">
+                            <img src="{{ asset('img/banner/' ~ banner.img) }}" class="card-img" alt="Banner Image" style="height: 400px; object-fit: cover;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-start p-4" style="background: rgba(0, 0, 0, 0.4);">
+                                <h6 class="text-uppercase text-white mb-2">{{ banner.title }}</h6>
+                                <h2 class="fw-bold text-white mb-2">{{ banner.heading }}</h2>
+                                <p class="text-white mb-3">{{ banner.desc }}</p>
+                                <a href="#" class="{{ banner.btnClass }} rounded-pill px-3 fw-semibold">{{ banner.btn }}</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 banners3">
+        <div class="px-5">
+            <div class="row g-4">
+                {% set banners = [
+                    {img: 'b7.jpg', title: 'SEASONAL SALE', desc: 'Winter Collection - 50% off'},
+                    {img: 'b4.jpg', title: 'NEW COLLECTION', desc: 'Spring / Summer Sale 2025'},
+                    {img: 'b18.jpg', title: 'T-SHIRTS', desc: 'Buy Fast Forward Fashion Clothes'}
+                ] %}
+
+                {% for banner in banners %}
+                    <div class="col-12 col-md-4">
+                        <div class="card text-bg-dark border-0 banner-card overflow-hidden">
+                            <img src="{{ asset('img/banner/' ~ banner.img) }}" class="card-img" alt="Banner Image" style="height: 400px; object-fit: cover;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-start p-4" style="background: rgba(0, 0, 0, 0.3);">
+                                <h4 class="text-white text-uppercase">{{ banner.title }}</h4>
+                                <h5 class="text-warning fw-semibold">{{ banner.desc }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="newsLetter py-5" style="background: linear-gradient(135deg, #0c2a4d, #183d5a);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h2 class="text-white fw-bold mb-2">Sign Up For Newsletters</h2>
+                    <p class="text-white-50 mb-0">Get E-mail updates about our latest shop and <span class="text-warning fw-semibold">special offers.</span></p>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(form, {'attr': {'class': 'd-flex'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control me-2 px-3', 'placeholder': 'Your email address'}}) }}
+                    <button type="submit" class="btn btn-success px-4 shadow">Subscribe Now</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
