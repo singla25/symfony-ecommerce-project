@@ -3,22 +3,19 @@
 {% block userContent %}
 
     <div class="container my-5">
-        <h2 class="text-center text-success mb-5 fw-bold">Admin Page</h2>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card shadow-lg border-0 rounded-4 mb-5">
                     <div class="card-header bg-success text-white rounded-top-4 text-center py-3">
-                        <h4 class="mb-0">Add New Product</h4>
+                        <h4 class="mb-0">Edit Product Info</h4>
                     </div>
                     <div class="card-body p-5 bg-white">
-                        {{ include('admin/shop/productRegisterForm.html.twig') }}
+                        {{ include('admin/shop/registerForm.html.twig') }}
                     </div>
                 </div>
             </div>
         </div>
-        {{ include('admin/pages/table.html.twig') }}
+        {{ include('admin/shop/table.html.twig') }}
     </div>
 
 {% endblock %}
-
-

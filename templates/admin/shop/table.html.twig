@@ -1,5 +1,4 @@
 <div class="container my-5">
-    <h2 class="text-center text-success mb-5 fw-bold">User Page</h2>
     <h2 class="text-center mb-4 fw-bold text-success">Product Details</h2>
     <div class="card shadow-lg border-0 rounded-4">
         <div class="card-body p-4 bg-white">
@@ -15,6 +14,7 @@
                                 <th>Price</th>
                                 <th>Address</th>
                                 <th>Photo</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody class="text-center">
@@ -27,6 +27,10 @@
                                         <td>{{ product.price }}</td>
                                         <td>{{ product.address }}</td>
                                         <td>{{ product.uploadPhotos }}</td>
+                                        <td>
+                                            <a href="{{ path('admin_editProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-secondary mb-1">Edit</a>
+                                            <a href="{{ path('admin_deleteProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-danger mb-1">Delete</a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             {% else %}
