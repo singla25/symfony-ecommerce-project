@@ -17,4 +17,16 @@ class UserShopController extends AbstractController
             'products' => $userView,
         ]);
     }
+
+    #[Route('/productDetails', name: 'productDetails_page')]
+    public function productDetails(): Response
+    {
+        return $this->render('user/pages/productDetails.html.twig');
+    }
+
+    #[Route('/cart', name: 'cart_page')]
+    public function cart(): Response
+    {
+        return $this->render('user/pages/cart.html.twig');
+    }
 }

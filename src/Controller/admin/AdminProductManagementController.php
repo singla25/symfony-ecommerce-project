@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route(path: '/admin/', name: 'admin')]
+#[Route(path: '/admin/', name: 'admin_')]
 class AdminProductManagementController extends AbstractController
 {
-    #[Route('product', name: 'Products')]
+    #[Route('product', name: 'products')]
     public function product(Request $request, ProductDetailRepository $productDetailRepository, EntityManagerInterface $em): Response
     {
         $productView = $productDetailRepository->findAll();
@@ -25,7 +25,7 @@ class AdminProductManagementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($createProduct);
             $em->flush();
-            return $this->redirectToRoute('create&ReadProduct');
+            return $this->redirectToRoute('admin_products');
         }
         return $this->render('admin/index.html.twig', [
             'form' => $form->createView(),

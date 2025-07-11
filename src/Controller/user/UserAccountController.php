@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/user', name: 'user_')]
-class UserController extends AbstractController
+class UserAccountController extends AbstractController
 {
     #[Route('/', name: 'home_page')]
     public function home(Request $request, EntityManagerInterface $em): Response
@@ -31,18 +31,6 @@ class UserController extends AbstractController
             'form' => $form,
             'newLetter' => $newsLetter,
         ]);
-    }
-
-    #[Route('/productDetails', name: 'productDetails_page')]
-    public function productDetails(): Response
-    {
-        return $this->render('user/pages/productDetails.html.twig');
-    }
-
-    #[Route('/blog', name: 'blog_page')]
-    public function blog(): Response
-    {
-        return $this->render('user/pages/blog.html.twig');
     }
 
     #[Route('/about', name: 'about_page')]
@@ -92,11 +80,5 @@ class UserController extends AbstractController
             'contactForm' => $contactForm->createView(),
             'newsletterForm' => $newsletterForm->createView(),
         ]);
-    }
-
-    #[Route('/cart', name: 'cart_page')]
-    public function cart(): Response
-    {
-        return $this->render('user/pages/cart.html.twig');
     }
 }
