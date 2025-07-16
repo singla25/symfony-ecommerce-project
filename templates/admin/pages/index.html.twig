@@ -1,11 +1,18 @@
 {% extends 'admin/internal_base.html.twig' %}
 
 {% block adminContent %}
-    <div class="d-flex">
-        {{ include('admin/base/sidebar.html.twig') }}
-
-        <div id="main-content" class="main-content flex-grow-1 p-4" style="margin-left: 250px;">
-
+    <div class="container mt-5">
+        <h1>Welcome to Admin Dashboard</h1>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <a href="{{ path('admin_products_createProduct') }}" class="btn btn-primary w-100">Manage Products</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-success w-100">Manage Orders</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-warning w-100">Manage Users</a>
+            </div>
         </div>
     </div>
 {% endblock %}
