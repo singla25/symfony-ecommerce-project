@@ -9,6 +9,16 @@
         {{ include('user/base/navbar.html.twig') }}
     {% endblock %}
 
+    {# ✅ FLASH MESSAGE BLOCK #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert" style="z-index: 1055;">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     {% block userContent %}
     {% endblock %}
 

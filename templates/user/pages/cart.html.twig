@@ -1,14 +1,71 @@
 {% extends 'user/internal_base.html.twig' %}
 
 {% block userContent %}
-
+    <!-- Banner -->
     <div class="position-relative text-center w-100" style="height: 30vh; overflow: hidden;">
         <img src="{{ asset('img/banner/b16.jpg') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
-
         <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
             <h2 class="fw-bold my-2">#YourCart</h2>
             <p class="mb-2">Review your items, update quantities, and get ready to checkout!</p>
         </div>
     </div>
 
+    <!-- Cart Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="mb-4">Your Shopping Cart 🛒</h2>
+
+            {% if cart|length > 0 %}
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+{#                        {% set total = 0 %}#}
+                        {% for item in cart %}
+{#                            {% set subtotal = item.product.price * item.quantity %}#}
+{#                            {% set total = total + subtotal %}#}
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/products/' ~ item.product.uploadPhotos) }}" alt="{{ item.product.productName }}" class="img-thumbnail" style="max-width: 100px;">
+                                </td>
+                                <td>
+                                    <strong>{{ item.product.productName }}</strong>
+                                    <div class="text-muted small">{{ item.product.brandName }}</div>
+                                </td>
+{#                                <td>#}
+{#                                    <input type="number" value="{{ item.quantity }}" min="1" class="form-control" style="width: 80px;">#}
+{#                                </td>#}
+                                <td>${{ item.product.price|number_format(2) }}</td>
+{#                                <td>${{ subtotal|number_format(2) }}</td>#}
+                                <td>
+                                    <a href="{{ path('user_remove_cart', { id: item.product.id }) }}" class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-end mt-4">
+{#                    <h4>Total: ${{ total|number_format(2) }}</h4>#}
+                    <a href="#" class="btn btn-success btn-lg mt-2">Proceed to Checkout</a>
+                </div>
+            {% else %}
+                <div class="alert alert-info mt-4">
+                    Your cart is empty. <a href="{{ path('user_shop_page') }}">Continue shopping</a>!
+                </div>
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}
