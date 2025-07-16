@@ -18,7 +18,15 @@
 
     <section class="py-5 bg-light featuredProducts">
         <div class="container">
-          {{ include('user/shop/shop_page_listing.html.twig') }}
+          <div class="row g-4">
+              {% if products|length > 0 %}
+                  {% for product in products %}
+                      {{ include('user/product/product.html.twig') }}
+                  {% endfor %}
+              {% else %}
+                  <p class="text-center">No Product Found</p>
+              {% endif %}
+          </div>
         </div>
     </section>
 

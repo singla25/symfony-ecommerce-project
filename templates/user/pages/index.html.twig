@@ -39,47 +39,18 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light featuredProducts">
+    <section class="py-5 bg-light oldArrivals">
         <div class="container">
             <h2 class="fw-bold text-primary text-center">Product Features</h2>
             <p class="text-muted text-center mb-5">Summer Collection New Modern Design</p>
             <div class="row g-4">
-                {% set productFeatures = [
-                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'f1.jpg', rating: 4},
-                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$30', img: 'f2.jpg', rating: 5},
-                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$40', img: 'f3.jpg', rating: 3},
-                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$45', img: 'f4.jpg', rating: 4},
-                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$35', img: 'f5.jpg', rating: 5},
-                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$70', img: 'f6.jpg', rating: 3},
-                    { brandName: 'nike', productName: 'Cotton Astronaut Pants', price: '$50', img: 'f7.jpg', rating: 4},
-                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$65', img: 'f8.jpg', rating: 5},
-                ] %}
-
-                {% for productFeature in productFeatures %}
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="card product-card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/products/' ~ productFeature.img) }}" alt="{{ productFeature.productName }}" class="card-img-top" style="height: 300px; object-fit: cover;">
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <span class="text-muted small text-uppercase">{{ productFeature.brandName }}</span>
-                                <h5 class="fw-bold my-2">{{ productFeature.productName }}</h5>
-                                <div class="d-flex align-items-center justify-content-between mt-auto">
-                                    <div class="text-start">
-                                        <div class="rating text-warning mb-1">
-                                            {% for i in 1..productFeature.rating %}
-                                                <i class="fas fa-star"></i>
-                                            {% endfor %}
-                                            {#    1..productFeature.rating → creates a range from 1 to product's rating.    #}
-                                        </div>
-                                        <h5 class="text-success mb-0">{{ productFeature.price }}</h5>
-                                    </div>
-                                    <a href="#" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                {% if oldArrivals|length > 0 %}
+                    {% for product in  oldArrivals %}
+                        {{ include('user/product/product.html.twig', {product: product}) }}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">No old arrivals found.</p>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -100,45 +71,13 @@
             <h2 class="fw-bold text-primary text-center">New Arrivals</h2>
             <p class="text-muted text-center mb-5">Collection of New Modern Design</p>
             <div class="row g-4">
-                {% set newArrivals = [
-                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$40', img: 'n1.jpg', rating: 4 },
-                    { brandName: 'puma', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'n2.jpg', rating: 5 },
-                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$45', img: 'n3.jpg', rating: 4 },
-                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$55', img: 'n4.jpg', rating: 4 },
-                    { brandName: 'addidas', productName: 'Cotton Astronaut Shirt', price: '$65', img: 'n5.jpg', rating: 5 },
-                    { brandName: 'puma', productName: 'Cotton Astronaut Short', price: '$35', img: 'n6.jpg', rating: 5 },
-                    { brandName: 'nike', productName: 'Cotton Astronaut Shirt', price: '$60', img: 'n7.jpg', rating: 4 },
-                    { brandName: 'H&M', productName: 'Cotton Astronaut Shirt', price: '$50', img: 'n8.jpg', rating: 5 },
-                ] %}
-
-                {% for newArrival in newArrivals %}
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="card product-card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/products/' ~ newArrival.img) }}" alt="{{ newArrival.productName }}" class="card-img-top" style="height: 300px; object-fit: cover;">
-                            <div class="card-body d-flex flex-column justify-content-between p-3">
-                                <span class="text-muted small text-uppercase">{{ newArrival.brandName }}</span>
-                                <h5 class="fw-bold my-2">{{ newArrival.productName }}</h5>
-                                <div class="d-flex align-items-center justify-content-between mt-auto">
-                                    <div class="text-start">
-                                        <div class="rating text-warning mb-1">
-                                            {% for i in 1..5 %}
-                                                {% if i <= newArrival.rating %}
-                                                    <i class="fas fa-star"></i>
-                                                {% else %}
-                                                    <i class="far fa-star"></i>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                        <h5 class="text-success mb-0 text-nowrap">{{ newArrival.price }}</h5>
-                                    </div>
-                                    <a href="#" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                {% if newArrivals|length > 0 %}
+                    {% for product in newArrivals %}
+                        {{ include('user/product/product.html.twig', {product: product}) }}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">No new arrivals found.</p>
+                {% endif %}
             </div>
         </div>
     </section>

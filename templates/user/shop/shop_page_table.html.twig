@@ -8,10 +8,11 @@
                             <thead class="table-success text-center">
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Brand Name</th>
+                                <th>Product Name</th>
+                                <th>Product Type</th>
                                 <th>Price</th>
-                                <th>Address</th>
+                                <th>Rating</th>
                                 <th>Photo</th>
                             </tr>
                             </thead>
@@ -20,10 +21,11 @@
                                 {% for product in products %}
                                     <tr>
                                         <td>{{ product.id }}</td>
-                                        <td>{{ product.name }}</td>
-                                        <td>{{ product.description }}</td>
+                                        <td>{{ product.brandName }}</td>
+                                        <td>{{ product.productName }}</td>
+                                        <td>{{ product.productType }}</td>
                                         <td>{{ product.price }}</td>
-                                        <td>{{ product.address }}</td>
+                                        <td>{{ product.rating }}</td>
                                         <td>{{ product.uploadPhotos }}</td>
                                     </tr>
                                 {% endfor %}

@@ -15,24 +15,6 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/user', name: 'user_')]
 class UserAccountController extends AbstractController
 {
-    #[Route('/', name: 'home_page')]
-    public function home(Request $request, EntityManagerInterface $em): Response
-    {
-        $newsLetter = new NewLetter();
-        $form = $this->createForm(NewLetterType::class, $newsLetter);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($newsLetter);
-            $em->flush();
-            return $this->redirectToRoute('user_home_page');
-        }
-        return $this->render('user/pages/index.html.twig', [
-            'form' => $form,
-            'newLetter' => $newsLetter,
-        ]);
-    }
-
     #[Route('/about', name: 'about_page')]
     public function about(Request $request, EntityManagerInterface $em): Response
     {

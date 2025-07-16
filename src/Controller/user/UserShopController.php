@@ -2,7 +2,7 @@
 
 namespace App\Controller\user;
 
-use App\Repository\ProductDetailRepository;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,9 +10,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserShopController extends AbstractController
 {
     #[Route('/shop', name: 'shop_page')]
-    public function shop(ProductDetailRepository $productDetailRepository): Response
+    public function shop(ProductRepository $productRepository): Response
     {
-        $userView = $productDetailRepository->findAll();
+        $userView = $productRepository->findAll();
         return $this->render('user/shop/shop_page.html.twig', [
             'products' => $userView,
         ]);

@@ -2,9 +2,9 @@
 
 namespace App\Controller\admin;
 
-use App\Entity\ProductDetail;
-use App\Form\ProductDetailType;
-use App\Repository\ProductDetailRepository;
+use App\Entity\Product;
+use App\Form\ProductType;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,12 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminProductManagementController extends AbstractController
 {
     #[Route('/', name: 'products')]
-    public function product(Request $request, ProductDetailRepository $productDetailRepository, EntityManagerInterface $em): Response
+    public function product(Request $request, ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
-        $viewProduct = $productDetailRepository->findAll();
+        $viewProduct = $productRepository->findAll();
 
-        $createProduct = new ProductDetail();
-        $form = $this->createForm(ProductDetailType::class, $createProduct);
+        $createProduct = new Product();
+        $form = $this->createForm(ProductType::class, $createProduct);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -35,16 +35,16 @@ class AdminProductManagementController extends AbstractController
     }
 
     #[Route('/edit/{id}', name: 'editProduct')]
-    public function edit(Request $request, ProductDetailRepository $productDetailRepository, EntityManagerInterface $em, $id): Response
+    public function edit(Request $request, ProductRepository $productRepository, EntityManagerInterface $em, $id): Response
     {
-        $editProductView = $productDetailRepository->findAll();
-        $edit = $productDetailRepository->find($id);
-        $form = $this->createForm(ProductDetailType::class, $edit);
+        $editProductView = $productRepository->findAll();
+        $edit = $productRepository->find($id);
+        $form = $this->createForm(ProductType::class, $edit);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($edit);
             $em->flush();
-            return $this->redirectToRoute('admin_editProduct', ['id' => $id]);
+            return $this->redirectToRoute('admin_products');
         }
         return $this->render('admin/shop/editForm.html.twig', [
             'form' => $form->createView(),
@@ -53,9 +53,9 @@ class AdminProductManagementController extends AbstractController
     }
 
     #[Route('/delete/{id}', name: 'deleteProduct')]
-    public function delete(ProductDetailRepository $productDetailRepository, EntityManagerInterface $em, $id): Response
+    public function delete(ProductRepository $productRepository, EntityManagerInterface $em, $id): Response
     {
-        $delete = $productDetailRepository->find($id);
+        $delete = $productRepository->find($id);
         $em->remove($delete);
         $em->flush();
         return $this->redirectToRoute('admin_products');
