@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/admin', name: 'admin_')]
 class AdminProductManagementController extends AbstractController
 {
-    #[Route('/', name: 'products')]
+    #[Route('/product', name: 'products')]
     public function product(Request $request, ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
         $viewProduct = $productRepository->findAll();

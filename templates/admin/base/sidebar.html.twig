@@ -1,0 +1,42 @@
+<nav id="sidebar" class="bg-dark vh-100 flex-shrink-0 p-3" style="width: 250px;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fs-5 text-white">Admin</span>
+        <button id="toggle-btn" class="btn btn-sm btn-outline-light">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{{ path('admin_dashboard') }}" class="nav-link text-white {% if app.request.get('_route') == 'admin_dashboard' %}active bg-primary{% endif %}">
+                <i class="fa-solid fa-gauge"></i> <span class="sidebar-text ms-2">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-white">
+                <i class="fa-solid fa-box"></i> <span class="sidebar-text ms-2">Products</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-white">
+                <i class="fa-solid fa-cart-shopping"></i> <span class="sidebar-text ms-2">Orders</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-white">
+                <i class="fa-solid fa-users"></i> <span class="sidebar-text ms-2">Customers</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-white">
+                <i class="fa-solid fa-chart-line"></i> <span class="sidebar-text ms-2">Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-white">
+                <i class="fa-solid fa-right-from-bracket"></i> <span class="sidebar-text ms-2">Logout</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
