@@ -22,13 +22,18 @@
     </div>
 
     <div class="col-md-6">
-        <label class="form-label fw-semibold text-secondary">Upload Photos</label>
-        {{ form_widget(form.uploadPhotos, {'attr': {'class': 'form-control rounded-3 shadow-sm'}}) }}
+        <label class="form-label fw-semibold text-secondary">Photos</label>
+        {{ form_widget(form.photo, {'attr': {'class': 'form-control rounded-3 shadow-sm'}}) }}
     </div>
 
     <div class="col-6">
         <label class="form-label fw-semibold text-secondary">Rating</label>
         {{ form_widget(form.rating, {'attr': {'class': 'form-control rounded-3 shadow-sm', 'placeholder': 'Product Rating'}}) }}
+    </div>
+
+    <div class="col-12">
+        <label class="form-label fw-semibold text-secondary">Product Details</label>
+        {{ form_widget(form.productDetail, {'attr': {'class': 'form-control rounded-3 shadow-sm', 'placeholder': 'Product Details', 'rows': '3'}}) }}
     </div>
 </div>
 

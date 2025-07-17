@@ -23,13 +23,16 @@ class Product
     private ?string $productType = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $productDetail = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $rating = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $uploadPhotos = null;
+    private ?string $photo = null;
 
     public function getId(): ?int
     {
@@ -66,6 +69,16 @@ class Product
         $this->productType = $productType;
     }
 
+    public function getProductDetail(): ?string
+    {
+        return $this->productDetail;
+    }
+
+    public function setProductDetail(?string $productDetail): void
+    {
+        $this->productDetail = $productDetail;
+    }
+
     public function getPrice(): ?string
     {
         return $this->price;
@@ -86,14 +99,14 @@ class Product
         $this->rating = $rating;
     }
 
-    public function getUploadPhotos(): ?string
+    public function getPhoto(): ?string
     {
-        return $this->uploadPhotos;
+        return $this->photo;
     }
 
-    public function setUploadPhotos(?string $uploadPhotos): void
+    public function setPhoto(?string $photo): void
     {
-        $this->uploadPhotos = $uploadPhotos;
+        $this->photo = $photo;
     }
 }
 

@@ -11,6 +11,7 @@
                                 <th>Brand Name</th>
                                 <th>Product Name</th>
                                 <th>Product Type</th>
+                                <th>Product Detail</th>
                                 <th>Price</th>
                                 <th>Rating</th>
                                 <th>Photo</th>
@@ -24,9 +25,10 @@
                                         <td>{{ product.brandName }}</td>
                                         <td>{{ product.productName }}</td>
                                         <td>{{ product.productType }}</td>
+                                        <td>{{ product.productDetail }}</td>
                                         <td>{{ product.price }}</td>
                                         <td>{{ product.rating }}</td>
-                                        <td>{{ product.uploadPhotos }}</td>
+                                        <td>{{ product.photo }}</td>
                                     </tr>
                                 {% endfor %}
                             {% else %}

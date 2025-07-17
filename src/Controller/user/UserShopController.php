@@ -21,52 +21,18 @@ class UserShopController extends AbstractController
         ]);
     }
 
-    #[Route('/productDetails', name: 'productDetails_page')]
-    public function productDetails(): Response
+    #[Route('/productDetails/{id}', name: 'productDetails')]
+    public function productDetails(ProductRepository $productRepository, $id): Response
     {
-        return $this->render('user/pages/productDetails.html.twig');
-    }
-
-    #[Route('/cart', name: 'cart_page')]
-    public function cart(SessionInterface $session): Response
-    {
-        $cart = $session->get('cart', []);
-        return $this->render('user/pages/cart.html.twig', [
-            'cart' => $cart,
+        $productDetail = $productRepository->find($id);
+        return $this->render('user/product/productDetails.html.twig', [
+            'product' => $productDetail,
         ]);
     }
 
-    #[Route('/add-to-cart/{id}', name: 'add_to_cart')]
-    public function addToCart(Product $product, Request $request, SessionInterface $session): Response
+    #[Route('/cart', name: 'cart_page')]
+    public function cart(): Response
     {
-        $cart = $session->get('cart', []);
-
-        $productId = $product->getId();
-        if (isset($cart[$productId])) {
-            $cart[$productId]['quantity'] += 1;
-        } else {
-            $cart[$productId] = [
-                'product' => $product,
-                'quantity' => 1,
-            ];
-        }
-
-        $session->set('cart', $cart);
-
-        $this->addFlash('success', $product->getProductName().' added to cart!');
-
-        return $this->redirect($request->headers->get('referer'));
-    }
-
-    #[Route('/remove-from-cart/{id}', name: 'remove_cart')]
-    public function removeFromCart(int $id, SessionInterface $session): Response
-    {
-        $cart = $session->get('cart', []);
-        if (isset($cart[$id])) {
-            unset($cart[$id]);
-        }
-        $session->set('cart', $cart);
-
-        return $this->redirectToRoute('user_cart_page');
+        return $this->render('user/pages/cart.html.twig');
     }
 }

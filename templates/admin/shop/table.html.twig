@@ -12,9 +12,10 @@
                                 <th>Brand Name</th>
                                 <th>Product Name</th>
                                 <th>Product Type</th>
+                                <th>Product Detail</th>
                                 <th>Price</th>
                                 <th>Rating</th>
-                                <th>Pics</th>
+                                <th>Photo</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -26,9 +27,10 @@
                                         <td>{{ product.brandName }}</td>
                                         <td>{{ product.productName }}</td>
                                         <td>{{ product.productType }}</td>
+                                        <td>{{ product.productDetail }}</td>
                                         <td>{{ product.price }}</td>
                                         <td>{{ product.rating }}</td>
-                                        <td>{{ product.uploadPhotos }}</td>
+                                        <td>{{ product.photo }}</td>
                                         <td>
                                             <a href="{{ path('admin_editProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-secondary mb-1">Edit</a>
                                             <a href="{{ path('admin_deleteProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-danger mb-1">Delete</a>

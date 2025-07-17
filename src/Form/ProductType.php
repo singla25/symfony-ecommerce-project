@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,9 +16,13 @@ class ProductType extends AbstractType
             ->add('brandName')
             ->add('productName')
             ->add('productType')
+            ->add('productDetail', TextareaType::class, [
+                'required' => false,
+                'label' => false,
+            ])
             ->add('price')
             ->add('rating')
-            ->add('uploadPhotos')
+            ->add('photo')
         ;
     }
 
