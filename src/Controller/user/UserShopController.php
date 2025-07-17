@@ -25,8 +25,19 @@ class UserShopController extends AbstractController
     public function productDetails(ProductRepository $productRepository, $id): Response
     {
         $productDetail = $productRepository->find($id);
+
+        $relatedProducts = $productRepository->createQueryBuilder('p')
+            ->where('p.productType = :type')
+            ->andWhere('p.id != :id')
+            ->setParameter('type', $productDetail->getProductType())
+            ->setParameter('id', $id)
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult();
+
         return $this->render('user/product/productDetails.html.twig', [
             'product' => $productDetail,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 

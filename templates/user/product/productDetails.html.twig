@@ -4,7 +4,6 @@
     <section class="py-5 bg-white">
         <div class="container">
             <div class="row g-4 align-items-start">
-
                 <div class="col-md-5">
                     <div class="mb-3">
                         <img src="{{ asset('img/products/' ~ product.photo) }}"
@@ -24,21 +23,17 @@
                 <div class="col-md-7">
                     <h2 class="fw-bold mb-1">{{ product.productName }}</h2>
                     <p class="text-muted mb-2">by <strong>{{ product.brandName }}</strong></p>
-
                     <div class="mb-2">
                         {% for i in 1..product.rating %}
                             <i class="fas fa-star text-warning"></i>
                         {% endfor %}
                     </div>
-
                     <h3 class="text-success mb-3">{{ product.price }}</h3>
-
                     <ul class="list-unstyled text-muted small mb-4">
                         <li><i class="fas fa-truck text-success me-2"></i> Free Delivery Available</li>
                         <li><i class="fas fa-undo text-success me-2"></i> 7 Days Return Policy</li>
                         <li><i class="fas fa-check-circle text-success me-2"></i> In Stock</li>
                     </ul>
-
                     <!-- Size Selector -->
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Select Size:</label>
@@ -61,7 +56,6 @@
                         <button class="btn btn-warning fw-semibold px-4 text-white shadow-sm">Buy Now</button>
                     </div>
 
-                    <!-- Product Description -->
                     <div>
                         <h5 class="fw-bold mb-2">Product Details</h5>
                         <p class="text-muted">
@@ -72,4 +66,45 @@
             </div>
         </div>
     </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-warning text-center">More Related Products</h2>
+            <p class="text-muted text-center mb-5">Collection of New Modern Design</p>
+            <div class="row g-4">
+                {% for product in relatedProducts %}
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card product-card h-100 border-0 shadow-sm">
+                            <img src="{{ asset('img/products/' ~ product.photo) }}" alt="{{ product.brandName }}" class="card-img-top" style="height: 300px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <span class="text-muted small text-uppercase">{{ product.brandName }}</span>
+                                <h5 class="fw-bold my-2">{{ product.productName }}</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-auto">
+                                    <div class="text-start">
+                                        <div class="rating text-warning mb-1">
+                                            {% for i in 1..product.rating %}
+                                                <i class="fas fa-star"></i>
+                                            {% endfor %}
+                                            {#    1..productFeature.rating → creates a range from 1 to product's rating.    #}
+                                        </div>
+                                        <h5 class="text-success mb-0">{{ product.price }}</h5>
+                                    </div>
+                                    <a href="{{ path('user_productDetails', { 'id':product.id }) }}"
+                                       class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
+                                       style="width: 40px; height: 40px;"
+                                       data-bs-toggle="tooltip"
+                                       data-bs-placement="top"
+                                       title="More details about the product">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
+
+
