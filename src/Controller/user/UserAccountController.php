@@ -15,6 +15,12 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/user', name: 'user_')]
 class UserAccountController extends AbstractController
 {
+    #[Route('/info', name: 'info')]
+    public function info(Request $request, EntityManagerInterface $em): Response
+    {
+        return $this->render('user/pages/info.html.twig');
+    }
+
     #[Route('/about', name: 'about_page')]
     public function about(Request $request, EntityManagerInterface $em): Response
     {

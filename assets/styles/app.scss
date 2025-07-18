@@ -16,7 +16,7 @@ html {
 // header
 .navbar {
     background: #E3E6F3;
-    box-shadow:  0 5px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky;
     top: 0;
@@ -38,7 +38,7 @@ html {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #088178; /* You can change color */
+    background-color: #088178;
     transition: width 0.3s ease;
 }
 
@@ -46,8 +46,13 @@ html {
     color: #088178 !important;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
+}
+
+.nav-link.active {
+    color: #088178 !important;
 }
 
 // footer
