@@ -52,7 +52,13 @@
                                class="form-control border-success text-center shadow-sm"
                                style="width: 80px; height: 45px;">
 
-                        <button class="btn btn-success fw-semibold px-4 shadow-sm">Add to Cart</button>
+                        <button class="btn btn-success fw-semibold px-4 shadow-sm"
+                                data-type="buyProduct"
+                                data-product-id="{{ product.id }}"
+                                data-product-price="{{ product.price }}"
+                                data-product-name="{{ product.productName }}">
+                            Add to Cart
+                        </button>
                         <button class="btn btn-warning fw-semibold px-4 text-white shadow-sm">Buy Now</button>
                     </div>
 
@@ -105,6 +111,9 @@
             </div>
         </div>
     </section>
+{% endblock %}
+{% block pagejavascript %}
+    {{ encore_entry_script_tags('jsCart') }}
 {% endblock %}
 
 

@@ -31,10 +31,15 @@
                 <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle {% if app.request.get('_route') == 'user_info' %}active{% endif %}" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user-tie"></i>
+{#                        {% if cartCount > 0 %}#}
+{#                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">#}
+{#                                {{ cartCount }}#}
+{#                            </span>#}
+{#                        {% endif %}#}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <li><a class="dropdown-item" href="{{ path('user_info') }}">User Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">User Details</a></li>
                     </ul>
                 </li>
             </ul>

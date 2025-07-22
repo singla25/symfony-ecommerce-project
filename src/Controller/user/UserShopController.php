@@ -41,9 +41,21 @@ class UserShopController extends AbstractController
         ]);
     }
 
+    #[Route('/add-to-cart/{id}', name: 'addToCart', methods: ['POST'])]
+    public function addToCart(Request $request,ProductRepository $productRepository, $id): Response
+    {
+        if(!$this->getUser())
+        {
+            return  $this->json([
+                'status' => false,
+                'msg' => 'You are not logged in'
+            ]);
+        }
+    }
+
     #[Route('/cart', name: 'cart_page')]
     public function cart(): Response
     {
-        return $this->render('user/pages/cart.html.twig');
+        return $this->render('user/product/cart.html.twig');
     }
 }
