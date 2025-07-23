@@ -4,17 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UserDetailRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserDetailRepository::class)]
-class UserDetail
+class UserDetail extends AbstractEntity
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
-
-    #[ORM\Column]
-    private ?int $userId = null;
+    private ?string $userId = null;
 
     #[ORM\Column(length: 180)]
     private ?string $email = null;
@@ -28,17 +24,12 @@ class UserDetail
     #[ORM\Column(length: 180)]
     private ?string $phoneNumber = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getUserId(): ?int
+    public function getUserId(): ?string
     {
         return $this->userId;
     }
 
-    public function setUserId(?int $userId): void
+    public function setUserId(?string $userId): void
     {
         $this->userId = $userId;
     }

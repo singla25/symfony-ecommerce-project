@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\UserCart;
+use App\Entity\Cart;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<UserCart>
+ * @extends ServiceEntityRepository<Cart>
  */
-class UserCartRepository extends ServiceEntityRepository
+class CartRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, UserCart::class);
+        parent::__construct($registry, Cart::class);
     }
 
     //    /**
-    //     * @return UserCart[] Returns an array of UserCart objects
+    //     * @return cart[] Returns an array of cart objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class UserCartRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?UserCart
+    //    public function findOneBySomeField($value): ?cart
     //    {
     //        return $this->createQueryBuilder('u')
     //            ->andWhere('u.exampleField = :val')

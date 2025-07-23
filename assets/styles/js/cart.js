@@ -21,5 +21,4 @@ $(document).on('click', '[data-type="buyProduct"]', function (e) {
             }
         }
     })
-
 })
