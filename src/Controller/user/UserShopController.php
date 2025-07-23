@@ -47,7 +47,8 @@ class UserShopController extends AbstractController
         {
             return  $this->json([
                 'status' => false,
-                'msg' => 'You are not logged in'
+                'msg' => 'You are not logged in',
+                'redirect' => '/login'
             ]);
         }
     }

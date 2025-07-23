@@ -18,6 +18,9 @@ $(document).on('click', '[data-type="buyProduct"]', function (e) {
         success: function (response) {
             if(!response.status){
                 alertify.error(response.msg);
+                if(response.redirect){
+                    window.location = response.redirect;
+                }
             }
         }
     })
