@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import alertify from 'alertifyjs';
-$(document).on('click', '[data-type="buyProduct"]', function (e) {
+$(document).on('click', function (e) {
 
     e.preventDefault();
     let productId = $(this).data('product-id');
