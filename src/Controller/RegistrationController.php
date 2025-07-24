@@ -35,19 +35,25 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user =$register->user;
             $userDetail =$register->userDetail;
+
             /** @var string $plainPassword */
             $plainPassword = $form->get('user')->get('plainPassword')->getData();
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
-            $entityManager->persist($user);
 
+            if($user->getEmail() == 'sahil@gmail.com') {
+                $user->setUserType('admin');
+            }
+
+            $entityManager->persist($user);
             $userDetail->setUserId($user->getId());
             $userDetail->setEmail($user->getEmail());
+            $userDetail->setUserType($user->getUserType());
+
             $entityManager->persist($userDetail);
 
-            dd($user,$userDetail);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
