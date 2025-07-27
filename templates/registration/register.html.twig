@@ -41,20 +41,33 @@
                             {{ form_errors(form.userDetail.phoneNumber) }}
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative">
                             {{ form_label(form.user.plainPassword.first) }}
-                            {{ form_widget(form.user.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                            <div class="input-group">
+                                {{ form_widget(form.user.plainPassword.first, {'attr': {
+                                    'class': 'form-control',
+                                    'type': 'password'
+                                }}) }}
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-eye togglePassword"></i>
+                                </span>
+                            </div>
                             {{ form_errors(form.user.plainPassword.first) }}
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative">
                             {{ form_label(form.user.plainPassword.second) }}
-                            {{ form_widget(form.user.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
-                            <i class="fa-solid fa-eye"></i>
+                            <div class="input-group">
+                                {{ form_widget(form.user.plainPassword.second, {'attr': {
+                                    'class': 'form-control',
+                                    'type': 'password'
+                                }}) }}
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-eye togglePassword"></i>
+                                </span>
+                            </div>
                             {{ form_errors(form.user.plainPassword.second) }}
                         </div>
-
-                        {{ form_errors(form.user.plainPassword) }}
 
                         <div class="mb-3 form-check">
                             {{ form_widget(form.user.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
