@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import alertify from 'alertifyjs';
 $(document).on('click', '[data-action="hide_show"]', function () {
-    let $eye= $(this);
+    let $eye = $(this);
     const id = $eye.prev().attr('id');
 
     const passwordField = $('#' + id);

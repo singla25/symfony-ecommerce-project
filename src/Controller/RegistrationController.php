@@ -51,10 +51,9 @@ class RegistrationController extends AbstractController
             $userDetail->setUserId($user->getId());
             $userDetail->setEmail($user->getEmail());
             $userDetail->setUserType($user->getUserType());
+            $entityManager->flush();
 
             $entityManager->persist($userDetail);
-
-            $entityManager->flush();
 
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
