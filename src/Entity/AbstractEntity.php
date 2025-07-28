@@ -40,6 +40,5 @@ abstract class AbstractEntity
     {
         $this->userType = $userType;
     }
-
 }
 
