@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\LoginAndSignUp;
 
-use App\Repository\UserDetailRepository;
+use App\Repository\LoginAndSignUp\UserDetailRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserDetailRepository::class)]
 class UserDetail extends AbstractEntity

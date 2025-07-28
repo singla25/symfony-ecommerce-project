@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Shop;
 
-use App\Entity\Product;
+use App\Entity\Shop\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;

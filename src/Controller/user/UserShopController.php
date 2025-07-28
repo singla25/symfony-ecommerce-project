@@ -2,12 +2,12 @@
 
 namespace App\Controller\user;
 
-use App\Entity\Product;
-use App\Repository\ProductRepository;
+use App\Repository\Shop\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+
 #[Route('/user', name: 'user_')]
 class UserShopController extends AbstractController
 {

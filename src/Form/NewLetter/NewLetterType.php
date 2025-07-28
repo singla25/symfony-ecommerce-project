@@ -1,34 +1,30 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\NewLetter;
 
-use App\Entity\ContactUs;
+use App\Entity\NewLetter\NewLetter;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ContactUsType extends AbstractType
+class NewLetterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
             ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'attr' => ['placeholder' => 'Enter your email'],
                 'required' => true,
             ])
-            ->add('phoneNumber')
-            ->add('subject')
-            ->add('message')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ContactUs::class,
+            'data_class' => NewLetter::class,
         ]);
     }
 }

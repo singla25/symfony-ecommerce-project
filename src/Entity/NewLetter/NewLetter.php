@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\NewLetter;
 
-use App\Repository\NewLetterRepository;
+use App\Entity\LoginAndSignUp\AbstractEntity;
+use App\Repository\NewLetter\NewLetterRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: NewLetterRepository::class)]

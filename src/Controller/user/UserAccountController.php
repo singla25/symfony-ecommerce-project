@@ -2,10 +2,10 @@
 
 namespace App\Controller\user;
 
-use App\Entity\ContactUs;
-use App\Entity\NewLetter;
-use App\Form\ContactUsType;
-use App\Form\NewLetterType;
+use App\Entity\Contact\ContactUs;
+use App\Entity\NewLetter\NewLetter;
+use App\Form\Contact\ContactUsType;
+use App\Form\NewLetter\NewLetterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -2,14 +2,15 @@
 
 namespace App\Controller\user;
 
-use App\Entity\NewLetter;
-use App\Form\NewLetterType;
-use App\Repository\ProductRepository;
+use App\Entity\NewLetter\NewLetter;
+use App\Form\NewLetter\NewLetterType;
+use App\Repository\Shop\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+
 #[Route('/user', name: 'user_')]
 class UserHomePageController extends AbstractController
 {

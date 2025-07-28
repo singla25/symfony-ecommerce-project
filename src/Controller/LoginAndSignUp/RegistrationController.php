@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\LoginAndSignUp;
 
-use App\Entity\User;
-use App\Entity\UserDetail;
-use App\Form\RegistrationFormType;
+use App\Entity\LoginAndSignUp\User;
+use App\Entity\LoginAndSignUp\UserDetail;
+use App\Form\LoginAndSignUp\RegistrationFormType;
 use App\FormObject\Register;
-use App\Repository\UserRepository;
+use App\Repository\LoginAndSignUp\UserRepository;
 use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -90,7 +90,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        // validate email confirmation link, sets User::isVerified=true and persists
+        // validate email confirmation link, sets Shop::isVerified=true and persists
         try {
             $this->emailVerifier->handleEmailConfirmation($request, $user);
         } catch (VerifyEmailExceptionInterface $exception) {

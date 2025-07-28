@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Contact;
 
-use App\Repository\ContactUsRepository;
+use App\Entity\LoginAndSignUp\AbstractEntity;
+use App\Repository\Contact\ContactUsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ContactUsRepository::class)]

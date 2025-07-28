@@ -2,9 +2,9 @@
 
 namespace App\Controller\admin;
 
-use App\Entity\Product;
-use App\Form\ProductType;
-use App\Repository\ProductRepository;
+use App\Entity\Shop\Product;
+use App\Form\Shop\ProductType;
+use App\Repository\Shop\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

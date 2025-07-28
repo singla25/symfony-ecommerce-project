@@ -1,29 +1,27 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\LoginAndSignUp;
 
-use App\Entity\User;
-use App\FormObject\Register;
+use App\Entity\LoginAndSignUp\UserDetail;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-class RegistrationFormType extends AbstractType
+class UserDetailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('user',UserType::class)
-            ->add('userDetail',UserDetailType::class);
+            ->add('name')
+            ->add('address')
+            ->add('phoneNumber')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Register::class,
+            'data_class' => UserDetail::class,
         ]);
     }
 }

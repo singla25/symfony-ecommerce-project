@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Shop;
 
-use App\Repository\ProductRepository;
+use App\Entity\LoginAndSignUp\AbstractEntity;
+use App\Repository\Shop\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
