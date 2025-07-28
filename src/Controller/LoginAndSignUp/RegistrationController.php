@@ -45,6 +45,7 @@ class RegistrationController extends AbstractController
 
             if($user->getEmail() == 'sahil@gmail.com') {
                 $user->setUserType('admin');
+                $user->setRoles(['ROLE_ADMIN']);
             }
 
             $entityManager->persist($user);
@@ -69,7 +70,6 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('user_home_page');
         }
-
         return $this->render('registration/register.html.twig', [
             'form' => $form,
         ]);
