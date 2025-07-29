@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\user;
+namespace App\Controller\user\blog;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

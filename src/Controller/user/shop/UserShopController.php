@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\user;
+namespace App\Controller\user\shop;
 
 use App\Repository\Shop\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

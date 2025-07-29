@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\LoginAndSignUp;
+namespace App\Controller\admin\LoginAndSignUp;
 
 use App\Entity\LoginAndSignUp\User;
 use App\Entity\LoginAndSignUp\UserDetail;

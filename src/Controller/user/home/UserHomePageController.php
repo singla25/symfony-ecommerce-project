@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\user;
+namespace App\Controller\user\home;
 
 use App\Entity\NewLetter\NewLetter;
 use App\Form\NewLetter\NewLetterType;
@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/user', name: 'user_')]
 class UserHomePageController extends AbstractController
 {
     #[Route('/', name: 'home_page')]
@@ -27,7 +26,7 @@ class UserHomePageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($newsLetter);
             $em->flush();
-            return $this->redirectToRoute('user_home_page');
+            return $this->redirectToRoute('home_page');
         }
         return $this->render('user/pages/index.html.twig', [
             'form' => $form,

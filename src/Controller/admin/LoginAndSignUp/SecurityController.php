@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\LoginAndSignUp;
+namespace App\Controller\admin\LoginAndSignUp;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
