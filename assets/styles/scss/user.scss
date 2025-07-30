@@ -1,6 +1,10 @@
 // footer
+footer {
+    background-color: #495057;
+}
+
 footer a:hover {
-    color: #ffc107 !important; /* yellowish highlight on hover */
+    color: #ffc107 !important;
     transition: color 0.3s ease;
 }
 
