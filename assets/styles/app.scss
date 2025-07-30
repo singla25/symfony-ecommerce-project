@@ -2,7 +2,8 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "alertifyjs/build/css/alertify.css";
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import "scss/dashboard";
+@import "scss/admin";
+@import "scss/user";
 
 * {
     margin: 0;
@@ -15,10 +16,11 @@ html {
     scroll-behavior: smooth;
 }
 
-// header
 .navbar {
-    background: #E3E6F3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    background-color: #495057;
+    color: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     position: sticky;
     top: 0;
@@ -29,7 +31,7 @@ html {
     font-weight: 600;
     position: relative;
     overflow: hidden;
-    color: #1a1a1a;
+    color: #ffffff;
     transition: 0.3s ease;
 }
 
@@ -61,71 +63,12 @@ html {
     display: none !important;
 }
 
-// footer
-footer a:hover {
-    color: #ffc107 !important; /* yellowish highlight on hover */
-    transition: color 0.3s ease;
+.navbar-admin .form-control {
+    background-color: white;
+    color: #2e2e3e;
+    border: none;
 }
 
-footer img {
-    transition: transform 0.3s ease;
-}
-
-footer img:hover {
-    transform: scale(1.05);
-}
-
-
-// home page
-.feature-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
-}
-
-// Shop Page
-.marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
-
-.marquee p {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-}
-
-@keyframes marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
-}
-
-
-// Product Details
-.card-img-top {
-    height: 300px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
-.btn-success:hover {
-    background-color: #198754; /* slightly darker green on hover */
-}
-
-// Blog Page
-.blogDate {
-    position: absolute;
-    top: -40px;
-    left: 0;
-}
 
 
 
