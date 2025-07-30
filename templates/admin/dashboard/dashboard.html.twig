@@ -1,0 +1,29 @@
+{% extends 'admin/internal_base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block bodyContent %}
+    <h2 class="mb-4">Welcome to the Dashboard</h2>
+    <p>This is your main content area.</p>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Total Sales</h6>
+                <h3>$32,000</h3>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Users</h6>
+                <h3>1,214</h3>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Revenue</h6>
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

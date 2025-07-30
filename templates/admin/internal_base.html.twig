@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="wrapper w-100 d-flex align-items-start justify-content-between bg-black">
-        {% block headerbar %}
+    <div class="layout">
+        {% block sidebar %}
+            {% include 'admin/base/sidebar.html.twig' %}
         {% endblock %}
 
-        {% block navbar %}
-            {{ include('admin/base/sidebar.html.twig') }}
-        {% endblock %}
+        <div class="main-area">
+            {% block navbar %}
+                {% include 'admin/base/navbar.html.twig' %}
+            {% endblock %}
 
-        {% block adminContent %}
-        {% endblock %}
-
-        {% block footer %}
-            {{ include('admin/base/footer.html.twig') }}
-        {% endblock %}
+            <main class="content-area">
+                {% block bodyContent %}
+                {% endblock %}
+            </main>
+        </div>
     </div>
 {% endblock %}
-

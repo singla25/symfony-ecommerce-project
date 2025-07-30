@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\admin;
+namespace App\Controller\admin\dashboard;
 
 use App\Entity\Shop\Product;
 use App\Form\Shop\ProductType;
@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/admin', name: 'admin_')]
 class AdminProductManagementController extends AbstractController
 {
-    #[Route('/', name: 'createProduct')]
+    #[Route('/', name: 'shopProduct')]
     public function product(Request $request, ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
         $viewProduct = $productRepository->findAll();
