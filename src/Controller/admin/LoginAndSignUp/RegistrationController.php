@@ -42,7 +42,6 @@ class RegistrationController extends AbstractController
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
-
             if($user->getEmail() == 'sahil@gmail.com') {
                 $user->setUserType('admin');
                 $user->setRoles(['ROLE_ADMIN']);

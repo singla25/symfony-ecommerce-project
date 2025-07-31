@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/admin', name: 'admin_')]
 class AdminProductManagementController extends AbstractController
 {
-    #[Route('/', name: 'shopProduct')]
+    #[Route('/shop', name: 'addProduct')]
     public function product(Request $request, ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
         $viewProduct = $productRepository->findAll();
@@ -26,7 +26,7 @@ class AdminProductManagementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($createProduct);
             $em->flush();
-            return $this->redirectToRoute('admin_createProduct');
+            return $this->redirectToRoute('admin_addProduct');
         }
         return $this->render('admin/shop/index.html.twig', [
             'form' => $form->createView(),
@@ -44,7 +44,7 @@ class AdminProductManagementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($edit);
             $em->flush();
-            return $this->redirectToRoute('admin_createProduct');
+            return $this->redirectToRoute('admin_addProduct');
         }
         return $this->render('admin/shop/editForm.html.twig', [
             'form' => $form->createView(),
@@ -58,6 +58,6 @@ class AdminProductManagementController extends AbstractController
         $delete = $productRepository->find($id);
         $em->remove($delete);
         $em->flush();
-        return $this->redirectToRoute('admin_createProduct');
+        return $this->redirectToRoute('admin_addProduct');
     }
 }

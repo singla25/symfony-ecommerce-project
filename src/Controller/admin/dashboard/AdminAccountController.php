@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin', name: 'admin_')]
 class AdminAccountController extends AbstractController
 {
-    #[Route('/dashboard', name: 'dashboard')]
+    #[Route('/', name: 'dashboard')]
     public function dashboard(): Response
     {
         return $this->render('admin/dashboard/dashboard.html.twig');
@@ -31,12 +31,5 @@ class AdminAccountController extends AbstractController
     public function blog(): Response
     {
         return $this->render('admin/dashboard/blog.html.twig');
-    }
-
-    #[Route('/logout', name: 'app_logout')]
-    public function logout(): void
-    {
-        // This method can be blank - Symfony handles logout automatically
-        throw new \Exception('This should not be reached.');
     }
 }
