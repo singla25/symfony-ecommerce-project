@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class UserHomePageController extends AbstractController
 {
-    #[Route('/', name: 'home_page')]
+    #[Route('/', name: 'user_home_page')]
     public function home(Request $request, ProductRepository $productRepository, EntityManagerInterface $em): Response
     {
         $newsLetter = new NewLetter();
@@ -26,7 +26,7 @@ class UserHomePageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($newsLetter);
             $em->flush();
-            return $this->redirectToRoute('home_page');
+            return $this->redirectToRoute('user_home_page');
         }
         return $this->render('user/pages/index.html.twig', [
             'form' => $form,

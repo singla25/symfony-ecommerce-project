@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg shadow-sm d-flex justify-content-between">
     <div class="container">
-        <a class="navbar-brand" href="{{ path('home_page') }}">
+        <a class="navbar-brand" href="{{ path('user_home_page') }}">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -10,25 +10,29 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 {% if app.user %}
-                <li class="nav-item px-4">
-                    <a class="nav-link {% if app.request.get('_route') == 'user_shop_page' %}active{% endif %}" href="{{ path('user_shop_page') }}">Shop</a>
-                </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link {% if app.request.get('_route') == 'user_shop_page' %}active{% endif %}" href="{{ path('user_shop_page') }}">Shop</a>
+                    </li>
                 {% endif %}
+
                 <li class="nav-item px-4">
                     <a class="nav-link {% if app.request.get('_route') == 'user_blog_page' %}active{% endif %}" href="{{ path('user_blog_page') }}">Blog</a>
                 </li>
+
                 <li class="nav-item px-4">
                     <a class="nav-link {% if app.request.get('_route') == 'user_about_page' %}active{% endif %}" href="{{ path('user_about_page') }}">About</a>
                 </li>
+
                 {% if app.user %}
-                <li class="nav-item px-4">
-                    <a class="nav-link {% if app.request.get('_route') == 'user_contact_page' %}active{% endif %}" href="{{ path('user_contact_page') }}">Contact</a>
-                </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link {% if app.request.get('_route') == 'user_cart_page' %}active{% endif %}" href="{{ path('user_cart_page') }}">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
-                </li>
+                    <li class="nav-item px-4">
+                        <a class="nav-link {% if app.request.get('_route') == 'user_contact_page' %}active{% endif %}" href="{{ path('user_contact_page') }}">Contact</a>
+                    </li>
+
+                    <li class="nav-item px-4">
+                        <a class="nav-link {% if app.request.get('_route') == 'user_cart_page' %}active{% endif %}" href="{{ path('user_cart_page') }}">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </a>
+                    </li>
                 {% endif %}
 
                 <!-- Dropdown -->
@@ -49,6 +53,11 @@
                         {% if app.user %}
                             <li><a class="dropdown-item" href="{{ path('user_info') }}">User Profile</a></li>
                             <li><a class="dropdown-item" href="#">User Details</a></li>
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a class="dropdown-item" href="{{ path('admin_dashboard') }}">Admin Panel</a></li>
+                            {% endif %}
+
                             <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
                         {% endif %}
                     </ul>
