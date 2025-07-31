@@ -56,6 +56,7 @@ class UserShopController extends AbstractController
     #[Route('/cart', name: 'cart_page')]
     public function cart(): Response
     {
+
         return $this->render('user/product/cart.html.twig');
     }
 }
