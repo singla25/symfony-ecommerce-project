@@ -21,12 +21,11 @@
                 <table class="table align-middle text-center table-bordered rounded-4 overflow-hidden">
                     <thead class="table-success">
                     <tr>
-                        <th>Product</th>
-                        <th>Brand</th>
-                        <th>Price</th>
+                        <th>Product Name</th>
+                        <th>Size</th>
                         <th>Quantity</th>
+                        <th>Price</th>
                         <th>Subtotal</th>
-                        <th>Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,21 +35,13 @@
                         {% set total = total + subtotal %}
                         <tr>
                             <td class="text-start">
-                                <img src="{{ asset('uploads/products/' ~ product.photo) }}" alt="product" width="60" class="me-2 rounded-2 shadow-sm">
+                                <img src="#" alt="product" width="60" class="me-2 rounded-2 shadow-sm">
                                 <strong>{{ product.productName }}</strong>
-                                <br><small class="text-muted">{{ product.productDetail|slice(0, 40) ~ '...' }}</small>
                             </td>
-                            <td>{{ product.brandName }}</td>
+                            <td>{{ product.size }}</td>
                             <td>₹{{ product.price }}</td>
-                            <td>
-                                <form action="{{ path('cart_update_quantity', { id: product.id }) }}" method="post">
-                                    <input type="number" name="quantity" value="{{ product.quantity }}" min="1" class="form-control w-75 mx-auto mb-2" onchange="this.form.submit()">
-                                </form>
-                            </td>
+                            <td>{{ product.quantity }}</td>
                             <td>₹{{ subtotal }}</td>
-                            <td>
-                                <a href="{{ path('cart_remove', { id: product.id }) }}" class="btn btn-sm btn-outline-danger">Remove</a>
-                            </td>
                         </tr>
                     {% endfor %}
                     <tr class="fw-bold bg-light">
@@ -61,7 +52,7 @@
                 </table>
             </div>
             <div class="text-end">
-                <a href="{{ path('checkout') }}" class="btn btn-lg btn-success px-5">Proceed to Checkout</a>
+                <a href="#" class="btn btn-lg btn-success px-5">Proceed to Checkout</a>
             </div>
         {% else %}
             <div class="text-center py-5">

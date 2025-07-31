@@ -19,13 +19,16 @@ class Cart extends AbstractEntity
     private ?string $productName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $price = null;
+    private ?float $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $size = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $quantity = null;
+    private ?int $quantity = null;
+
+    #[ORM\Column(length: 255)]
+    private ?float $subTotal = null;
 
     #[ORM\Column(length: 255)]
     private ?string $createdAt = null;
@@ -76,22 +79,22 @@ class Cart extends AbstractEntity
         $this->size = $size;
     }
 
-    public function getQuantity(): ?string
+    public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    public function setQuantity(?string $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
-    public function getPrice(): ?string
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(?string $price): void
+    public function setPrice(?float $price): void
     {
         $this->price = $price;
     }
@@ -104,5 +107,15 @@ class Cart extends AbstractEntity
     public function setCreatedAt(?string $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function getSubTotal(): ?float
+    {
+        return $this->subTotal;
+    }
+
+    public function setSubTotal(?float $subTotal): void
+    {
+        $this->subTotal = $subTotal;
     }
 }
