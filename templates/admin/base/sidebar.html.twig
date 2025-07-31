@@ -1,7 +1,7 @@
 <nav class="sidebar d-flex flex-column justify-content-between">
     <div>
         <div class="text-center mb-4">
-            <h4><i class="fas fa-gem me-2"></i>CARA</h4>
+            <h4><i class="fas fa-gem me-2"></i>ShopNext</h4>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item mb-2">
@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="{{ path('admin_addProduct') }}" class="nav-link {{ app.request.attributes.get('_route') starts with 'admin_shopProduct' ? 'active' : 'text-light' }}">
+                <a href="{{ path('admin_addProduct') }}" class="nav-link {{ app.request.attributes.get('_route') starts with 'admin_addProduct' ? 'active' : 'text-light' }}">
                     <i class="fas fa-store me-2"></i> Shop
                 </a>
             </li>
