@@ -1,3 +1,13 @@
+// logo
+#logo {
+    width: 100px;
+    border-radius: 15px;
+}
+
+#logo-a {
+    padding: 0;
+}
+
 // footer
 footer {
     background-color: #495057;
@@ -6,6 +16,12 @@ footer {
 footer a:hover {
     color: #ffc107 !important;
     transition: color 0.3s ease;
+}
+
+#footerLogo {
+    width: 180px;
+    height: 100px;
+    border-radius: 25px;
 }
 
 footer img {
