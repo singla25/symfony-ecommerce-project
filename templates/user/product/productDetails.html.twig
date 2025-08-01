@@ -30,38 +30,50 @@
                             <i class="fas fa-star text-warning"></i>
                         {% endfor %}
                     </div>
-                    <h3 class="text-success mb-3">{{ product.price }}</h3>
+                    <h3 class="text-success mb-3">${{ product.price }}</h3>
                     <ul class="list-unstyled text-muted small mb-4">
                         <li><i class="fas fa-truck text-success me-2"></i> Free Delivery Available</li>
                         <li><i class="fas fa-undo text-success me-2"></i> 7 Days Return Policy</li>
                         <li><i class="fas fa-check-circle text-success me-2"></i> In Stock</li>
                     </ul>
-                    <!-- Size Selector -->
+
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Select Size:</label>
-                        <select class="form-select w-50 shadow-sm">
-                            <option selected>Select</option>
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
+                        <label for="productSize" class="form-label fw-semibold">Select Size:</label>
+                        <select name="size" id="productSize" class="form-select shadow-sm w-25">
+                            {% for size in product.size %}
+                                <option value="{{ size }}">{{ size }}</option>
+                            {% else %}
+                                <option disabled>No sizes available</option>
+                            {% endfor %}
                         </select>
                     </div>
 
-                    <!-- Quantity and Action Buttons -->
                     <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
-                        <input type="number" value="1" min="1"
-                               class="form-control border-success text-center shadow-sm"
-                               style="width: 80px; height: 45px;">
+                        <div class="mb-3">
+                            <input type="number" value="1" min="1" id="productQuantity"
+                                   class="form-control border-success text-center shadow-sm"
+                                   style="width: 80px; height: 45px;">
+                        </div>
 
                         <button class="btn btn-success fw-semibold px-4 shadow-sm"
-                                data-type="buyProduct"
+                                data-type="addToCart"
                                 data-product-id="{{ product.id }}"
+                                data-product-photo="{{ product.photo }}"
+                                data-product-name="{{ product.productName }}"
                                 data-product-price="{{ product.price }}"
-                                data-product-name="{{ product.productName }}">
+                                >
                             Add to Cart
                         </button>
-                        <button class="btn btn-warning fw-semibold px-4 text-white shadow-sm">Buy Now</button>
+
+                        <button class="btn btn-warning fw-semibold px-4 text-white shadow-sm"
+                                data-type="buyNow"
+                                data-product-id="{{ product.id }}"
+                                data-product-photo="{{ product.photo }}"
+                                data-product-name="{{ product.productName }}"
+                                data-product-price="{{ product.price }}">
+                            Buy Now
+                        </button>
+
                     </div>
 
                     <div>
@@ -95,7 +107,7 @@
                                             {% endfor %}
                                             {#    1..productFeature.rating → creates a range from 1 to product's rating.    #}
                                         </div>
-                                        <h5 class="text-success mb-0">{{ product.price }}</h5>
+                                        <h5 class="text-success mb-0">${{ product.price }}</h5>
                                     </div>
                                     <a href="{{ path('user_productDetails', { 'id':product.id }) }}"
                                        class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"

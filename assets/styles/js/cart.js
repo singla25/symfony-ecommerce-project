@@ -1,27 +1,43 @@
 import $ from 'jquery';
 import alertify from 'alertifyjs';
-$(document).on('click', '[data-type="buyProduct"]', function (e) {
 
+$(document).on('click', '[data-type="addToCart"], [data-type="buyNow"]', function (e) {
     e.preventDefault();
+
+    let buttonType = $(this).data('type');
     let productId = $(this).data('product-id');
-    let productPrice = $(this).data('product-price');
+    let productImage = $(this).data('product-photo');
     let productName = $(this).data('product-name');
+    let productPrice = $(this).data('product-price');
+    let selectedSize = $('#productSize').val();
+    let quantity = parseInt($('#productQuantity').val()) || 1;
+    let subTotal = productPrice * quantity;
 
     $.ajax({
         type: "POST",
         url: `/user/add-to-cart/${productId}`,
         data: {
             productId: productId,
-            productPrice: productPrice,
+            productImage: productImage,
             productName: productName,
+            productPrice: productPrice,
+            quantity: quantity,
+            size: selectedSize,
+            subTotal: subTotal,
         },
         success: function (response) {
-            if(!response.status){
+            if (response.status) {
+                if (buttonType === 'buyNow') {
+                    window.location.href = '/user/cart';
+                } else {
+                    alertify.success(response.msg);
+                }
+            } else {
                 alertify.error(response.msg);
-                if(response.redirect){
-                    window.location = response.redirect;
+                if (response.redirect) {
+                    window.location.href = response.redirect;
                 }
             }
         }
-    })
-})
+    });
+});

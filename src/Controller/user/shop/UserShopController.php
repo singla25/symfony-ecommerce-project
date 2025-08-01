@@ -44,17 +44,8 @@ class UserShopController extends AbstractController
     }
 
     #[Route('/add-to-cart/{id}', name: 'addToCart', methods: ['POST'])]
-    public function addToCart(Request $request,ProductRepository $productRepository, $id, EntityManagerInterface $em): Response
+    public function addToCart(Request $request,ProductRepository $productRepository, EntityManagerInterface $em, $id): Response
     {
-        $cart = new Cart();
-        $cart->setProductName($request->request->get('productName'));
-        $cart->setPrice($request->request->get('price'));
-        $cart->setQuantity($request->request->get('quantity'));
-        $cart->setSubTotal($request->request->get('subTotal'));
-
-        $em->persist($cart);
-        $em->flush();
-
         if(!$this->getUser())
         {
             return  $this->json([
@@ -63,6 +54,26 @@ class UserShopController extends AbstractController
                 'redirect' => '/login'
             ]);
         }
+
+        $cart = new Cart();
+
+        $cart->setUserId($this->getUser()->getId());
+        $cart->setProductImage($request->request->get('productImage'));
+        $cart->setProductId((string) $request->request->get('productid'));
+        $cart->setProductName($request->request->get('productName'));
+        $cart->setPrice((float) $request->request->get('productPrice'));
+        $cart->setSize($request->request->get('size'));
+        $cart->setQuantity($request->request->get('quantity'));
+        $cart->setSubTotal((float) $request->request->get('subTotal'));
+        $cart->setCreatedAt(new \DateTime());
+
+        $em->persist($cart);
+        $em->flush();
+
+        return $this->json([
+            'status' => true,
+            'msg' => 'Product added to cart successfully!',
+        ]);
     }
 
     #[Route('/cart', name: 'cart_page')]
