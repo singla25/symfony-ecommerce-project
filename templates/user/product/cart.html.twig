@@ -18,14 +18,15 @@
 
         {% if products|length > 0 %}
             <div class="table-responsive mb-4">
-                <table class="table align-middle text-center table-bordered rounded-4 overflow-hidden">
+                <table class="table align-middle text-center table-bordered">
                     <thead class="table-success">
                     <tr>
-                        <th>Product Name</th>
-                        <th>Size</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
+                        <th style="width: 150px;">Product Image</th>
+                        <th style="width: 200px;">Product Name</th>
+                        <th style="width: 80px;">Size</th>
+                        <th style="width: 100px;">Quantity</th>
+                        <th style="width: 100px;">Price</th>
+                        <th style="width: 100px;">Subtotal</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,19 +35,22 @@
                         {% set subtotal = product.price * product.quantity %}
                         {% set total = total + subtotal %}
                         <tr>
-                            <td class="text-start">
-                                <img src="#" alt="product" width="60" class="me-2 rounded-2 shadow-sm">
-                                <strong>{{ product.productName }}</strong>
+                            <td class="text-center">
+                                <img src="{{ asset('img/products/' ~ product.productImage) }}"
+                                     class="img-fluid rounded shadow-sm"
+                                     style="max-height: 120px; max-width: 100%; object-fit: contain;"
+                                     alt="{{ product.productName }}">
                             </td>
-                            <td>{{ product.size }}</td>
-                            <td>₹{{ product.price }}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td>₹{{ subtotal }}</td>
+                            <td class="align-middle"><strong>{{ product.productName }}</strong></td>
+                            <td class="align-middle">{{ product.size }}</td>
+                            <td class="align-middle">{{ product.quantity }}</td>
+                            <td class="align-middle">${{ product.price }}</td>
+                            <td class="align-middle">${{ subtotal }}</td>
                         </tr>
                     {% endfor %}
                     <tr class="fw-bold bg-light">
                         <td colspan="4" class="text-end">Total</td>
-                        <td colspan="2">₹{{ total }}</td>
+                        <td colspan="2">${{ total }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -57,7 +61,7 @@
         {% else %}
             <div class="text-center py-5">
                 <h4 class="text-muted">🛒 Your cart is empty</h4>
-                <a href="{{ path('user_home_page') }}" class="btn btn-outline-primary mt-3">Continue Shopping</a>
+                <a href="{{ path('user_shop_page') }}" class="btn btn-outline-success mt-3">Continue Shopping</a>
             </div>
         {% endif %}
     </div>

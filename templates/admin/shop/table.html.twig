@@ -13,9 +13,11 @@
                                 <th>Product Name</th>
                                 <th>Product Type</th>
                                 <th>Product Detail</th>
+                                <th>Product Size Available</th>
                                 <th>Price</th>
                                 <th>Rating</th>
                                 <th>Photo</th>
+                                <th>For Gender</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -28,9 +30,17 @@
                                         <td>{{ product.productName }}</td>
                                         <td>{{ product.productType }}</td>
                                         <td>{{ product.productDetail }}</td>
+                                        <td>
+                                            {% for s in product.size %}
+                                                <span class="badge bg-secondary">{{ s }}</span>
+                                            {% else %}
+                                                <span class="text-muted">NA</span>
+                                            {% endfor %}
+                                        </td>
                                         <td>{{ product.price }}</td>
                                         <td>{{ product.rating }}</td>
                                         <td>{{ product.photo }}</td>
+                                        <td>{{ product.gender }}</td>
                                         <td>
                                             <a href="{{ path('admin_editProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-secondary mb-1">Edit</a>
                                             <a href="{{ path('admin_deleteProduct', { id: product.id }) }}" class="btn btn-sm btn-outline-danger mb-1">Delete</a>

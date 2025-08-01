@@ -31,6 +31,16 @@
         {{ form_widget(form.rating, {'attr': {'class': 'form-control rounded-3 shadow-sm', 'placeholder': 'Product Rating'}}) }}
     </div>
 
+    <div class="col-6">
+        <label class="form-label fw-semibold text-secondary">Select Size</label>
+        {{ form_widget(form.size, {'attr': {'class': 'form-control select2 rounded-3 shadow-sm', 'placeholder': 'Product Size',  'multiple': "multiple"}}) }}
+    </div>
+
+    <div class="col-6">
+        <label class="form-label fw-semibold text-secondary">Gender</label>
+        {{ form_widget(form.gender, {'attr': {'class': 'form-control rounded-3 shadow-sm', 'placeholder': 'Gender'}}) }}
+    </div>
+
     <div class="col-12">
         <label class="form-label fw-semibold text-secondary">Product Details</label>
         {{ form_widget(form.productDetail, {'attr': {'class': 'form-control rounded-3 shadow-sm', 'placeholder': 'Product Details', 'rows': '3'}}) }}
