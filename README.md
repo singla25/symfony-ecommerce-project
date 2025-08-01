@@ -1,119 +1,123 @@
-💡 About the Project
+# 🛒 Symfony E-commerce Website
 
-This project is a full-featured e-commerce website built with Symfony and Bootstrap 5. It features a dynamic, responsive interface combined with robust backend functionality to offer a real-world online shopping experience.
+Welcome to **ShopNext**, a fully-featured, responsive, and modern **e-commerce website** built with **Symfony** and **Bootstrap 5**. This project is a portfolio-level application designed with scalability, clean code practices, and real-world usability in mind.
 
-🚀 Key Features
+---
 
-✅ Fully responsive design using Bootstrap 5
+## 🚀 Live Demo
 
-✅ Dynamic product listing and single product pages
+📌 Coming Soon — *Deployed link will be added here!*
 
-✅ User authentication (login, register)
+---
 
-✅ Shopping cart with AJAX add-to-cart (no page reload)
+## 🌟 Features at a Glance
 
-✅ Product ratings and reviews
+✅ Responsive & mobile-friendly layout
+✅ Dynamic product listings & search
+✅ Secure user authentication (register/login)
+✅ Cart & checkout system with order summary
+✅ Product ratings and user reviews
+✅ Newsletter subscription integration
+✅ Admin dashboard for product/order control
+✅ Interactive UI using jQuery & Ajax
+✅ Organized project structure & clean code
 
-✅ Newsletter subscription with backend form
+---
 
-✅ Admin dashboard for product & order management
+## 🧰 Tech Stack
 
-✅ Smooth, modern UI animations and interactions
+**Frontend**
+🔹 Bootstrap 5
+🔹 HTML5, CSS3, JavaScript, jQuery, Ajax
 
-✅ Clean and modular code structure following best practices
+**Backend**
+🔹 PHP (Symfony Framework)
+🔹 Doctrine ORM
 
-⚙️ Tech Stack
+**Database**
+🔹 MySQL
 
-Frontend: Bootstrap 5, HTML5, CSS3, JavaScript, jQuery, AJAX
+**Tools & Dependencies**
+🔹 Composer, Yarn
+🔹 Twig (Templating)
+🔹 Symfony Encore (Webpack)
 
-Backend: Symfony (PHP)
+---
 
-Database: MySQL (Doctrine ORM)
+## 📂 Pages & Functionality
 
-Tools: Composer, Yarn, Webpack Encore, Twig (templating)
+| Page                | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| 🏠 Home             | Hero banner, featured collections, latest arrivals  |
+| 🛍️ Shop            | Filtered product grids, pagination, categories      |
+| 🧾 Product Detail   | Full product view, add to cart, rating system       |
+| 🛒 Cart & Checkout  | Dynamic cart, remove/edit items, checkout form      |
+| 📞 Contact          | Contact form with map and contact details           |
+| 📰 Blog (Optional)  | Blog articles & announcements                       |
+| 🙍‍♂️ About         | Brand or team information                           |
+| 🔐 Login/Register   | Secure authentication using Symfony security bundle |
+| 🛠️ Admin Dashboard | Manage products, users, orders, etc.                |
 
-📄 Pages
+---
 
-🏠 Home Page — Hero section, banners, new arrivals, featured collections
+## ⚙️ How to Set Up Locally
 
-🍭 Shop Page — Product grids, filters, and categories
-
-🛒 Cart & Checkout — Add/remove items, dynamic cart, forms
-
-🧳 Single Product Page — Detailed product view with dynamic rating
-
-📰 Blog Page — Latest articles or announcements (optional)
-
-📞 Contact Page — Contact form and store details
-
-👤 About Page — Brand story or team introduction
-
-📩 How to Run
-
-Clone the repository:
-
+```bash
+# 1. Clone the repository
 git clone https://github.com/singla25/symfony-ecommerce-project.git
 cd symfony-ecommerce-project
 
-Install dependencies:
-
+# 2. Install dependencies
 composer install
 yarn install
 yarn encore dev
 
-Configure .env file with your database credentials.
+# 3. Set up environment
+cp .env .env.local
+# Edit DB credentials in .env.local
 
-Run migrations & seed data:
-
+# 4. Create and migrate the database
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 
-Start local server:
-
+# 5. Run the Symfony local server
 symfony server:start
+```
 
-✨ Highlights
+---
 
-Transitions from static pages to a fully dynamic, scalable application
+## 🖼️ Sneak Peek (Screenshots)
 
-Built using Symfony best practices: routing, services, form handling
+| Home Page       | Shop Page       | Product Detail  |
+| --------------- | --------------- | --------------- |
+| *(Coming Soon)* | *(Coming Soon)* | *(Coming Soon)* |
 
-Uses AJAX for cart updates for a seamless UX
+---
 
-Styled with Bootstrap 5 utility classes for consistency
+## ✨ Highlights
 
-Easy to extend and customize thanks to modular code structure
+* Built with **Symfony best practices**
+* Modular code with **Twig**, **Services**, and **MVC pattern**
+* Uses **Doctrine Entities** and lifecycle events like `createdAt`
+* Efficient asset management using **Encore + Yarn**
+* Easily customizable & scalable for real-world deployments
 
-🖼️ Screenshots
+---
 
-Home Page
+## 👨‍💻 Author
 
-Shop Page
+**Sahil Singla**
+🎓 Aspiring Full Stack Developer
+🔗 [LinkedIn](https://www.linkedin.com/in/ssingla25) | 📬 [sahilrajiv.singla@gmail.com](mailto:sahilrajiv.singla@gmail.com)
 
-Product Page
+---
 
+## 📝 License & Use
 
+This project is for **educational and personal portfolio** purposes only.
+Icons, images, and other assets may require licensing for commercial use.
 
+---
 
-
-
-
-📝 Credits
-
-Base HTML/CSS/JS structure inspired by tutorials from Chai aur Code
-
-All images, icons, and fonts used are for educational/demo purposes
-
-💬 Contact
-
-Want to collaborate or have questions? Reach out:
-
-LinkedIn: Sahil Singla
-
-Email: sahilrajiv.singla@gmail.com
-
-⚖️ License
-
-This project is for educational and personal portfolio use only.
-Commercial use of some assets (e.g., icons, images) may require licensing.
+> ⭐ **Give a star** if you like it! Fork it, use it, and customize it your way!
