@@ -21,14 +21,20 @@ class Product extends AbstractEntity
     #[ORM\Column(length: 255)]
     private ?string $productDetail = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $price = null;
+    #[ORM\Column(type: 'json')]
+    private array $size = [];
+
+    #[ORM\Column(type: 'float')]
+    private ?float $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $rating = null;
 
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $gender = null;
 
     public function getBrandName(): ?string
     {
@@ -70,12 +76,22 @@ class Product extends AbstractEntity
         $this->productDetail = $productDetail;
     }
 
-    public function getPrice(): ?string
+    public function getSize(): array
+    {
+        return $this->size ?? [];
+    }
+
+    public function setSize(array $size): void
+    {
+        $this->size = $size;
+    }
+
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(?string $price): void
+    public function setPrice(?float $price): void
     {
         $this->price = $price;
     }
@@ -98,6 +114,16 @@ class Product extends AbstractEntity
     public function setPhoto(?string $photo): void
     {
         $this->photo = $photo;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?string $gender): void
+    {
+        $this->gender = $gender;
     }
 }
 

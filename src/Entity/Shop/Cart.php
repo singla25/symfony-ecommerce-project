@@ -10,15 +10,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Cart extends AbstractEntity
 {
     #[ORM\Column]
-    private ?string $userid = null;
+    private ?string $userId = null;
 
     #[ORM\Column]
-    private ?string $productid = null;
+    private ?string $productId = null;
+
+    #[ORM\Column]
+    private ?string $productImage = null;
 
     #[ORM\Column(length: 255)]
     private ?string $productName = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'float')]
     private ?float $price = null;
 
     #[ORM\Column(length: 255)]
@@ -27,34 +30,44 @@ class Cart extends AbstractEntity
     #[ORM\Column(length: 255)]
     private ?int $quantity = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'float')]
     private ?float $subTotal = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $createdAt = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $createdAt = null;
 
-    public function getUserid(): ?string
+    public function getUserId(): ?string
     {
-        return $this->userid;
+        return $this->userId;
     }
 
-    public function setUserid(string $userid): static
+    public function setUserId(string $userId): static
     {
-        $this->userid = $userid;
+        $this->userId = $userId;
 
         return $this;
     }
 
-    public function getProductid(): ?string
+    public function getProductId(): ?string
     {
-        return $this->productid;
+        return $this->productId;
     }
 
-    public function setProductid(string $productid): static
+    public function setProductId(string $productId): static
     {
-        $this->productid = $productid;
+        $this->productId = $productId;
 
         return $this;
+    }
+
+    public function getProductImage(): ?string
+    {
+        return $this->productImage;
+    }
+
+    public function setProductImage(?string $productImage): void
+    {
+        $this->productImage = $productImage;
     }
 
     public function getProductName(): ?string
@@ -99,16 +112,6 @@ class Cart extends AbstractEntity
         $this->price = $price;
     }
 
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
     public function getSubTotal(): ?float
     {
         return $this->subTotal;
@@ -117,5 +120,15 @@ class Cart extends AbstractEntity
     public function setSubTotal(?float $subTotal): void
     {
         $this->subTotal = $subTotal;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
+    {
+        $this->createdAt = $createdAt;
     }
 }
