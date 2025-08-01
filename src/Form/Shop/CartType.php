@@ -14,10 +14,9 @@ class CartType extends AbstractType
     {
         $builder
             ->add('userType')
-            ->add('userid')
-            ->add('productid')
+            ->add('userId')
+            ->add('productId')
             ->add('productName')
-
             ->add('price')
             ->add('quantity')
             ->add('createdAt')

@@ -38,7 +38,7 @@ abstract class AbstractEntity
 
     public function setUserType(?string $userType): void
     {
-        $this->userType = $userType;
+        $this->userType = 'user';
     }
 }
 

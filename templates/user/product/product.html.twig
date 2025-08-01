@@ -12,7 +12,7 @@
                         {% endfor %}
                         {#    1..productFeature.rating → creates a range from 1 to product's rating.    #}
                     </div>
-                    <h5 class="text-success mb-0">{{ product.price }}</h5>
+                    <h5 class="text-success mb-0">${{ product.price }}</h5>
                 </div>
                 <a href="{{ path('user_productDetails', { 'id':product.id }) }}"
                    class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"

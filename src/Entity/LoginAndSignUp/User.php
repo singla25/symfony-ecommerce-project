@@ -2,8 +2,8 @@
 
 namespace App\Entity\LoginAndSignUp;
 
-use App\Repository\LoginAndSignUp\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LoginAndSignUp\UserRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
