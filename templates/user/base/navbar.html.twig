@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg shadow-sm d-flex justify-content-between">
     <div class="container">
         <a class="navbar-brand" href="{{ path('user_home_page') }}" id="logo-a">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo" height="50" id="logo">
+            <img src="{{ asset('img/logo.png') }}"  alt="Logo" id="logo">
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,22 +29,24 @@
                         <a class="nav-link {% if app.request.get('_route') == 'user_contact_page' %}active{% endif %}" href="{{ path('user_contact_page') }}">Contact</a>
                     </li>
 
-                    <li class="nav-item px-4">
-                        <a class="nav-link {% if app.request.get('_route') == 'user_cart_page' %}active{% endif %}" href="{{ path('user_cart_page') }}">
-                            <i class="fa-solid fa-bag-shopping"></i>
+                    <li class="nav-item px-4 d-flex align-items-center">
+                        <a class="nav-link d-flex align-items-center {% if app.request.get('_route') == 'user_cart_page' %}active{% endif %}" href="{{ path('user_cart_page') }}">
+                            <i class="fa-solid fa-cart-shopping fa-lg me-1"></i>
+                            {% if cartCount > 0 %}
+                                <span class="badge bg-success" style="font-size: 0.7rem;">
+                                    {{ cartCount }}
+                                </span>
+                            {% endif %}
                         </a>
                     </li>
+
+
                 {% endif %}
 
                 <!-- Dropdown -->
                 <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle {% if app.request.get('_route') == 'user_info' %}active{% endif %}" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user-tie"></i>
-{#                        {% if cartCount > 0 %}#}
-{#                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">#}
-{#                                {{ cartCount }}#}
-{#                            </span>#}
-{#                        {% endif %}#}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         {% if not app.user %}
@@ -61,7 +64,6 @@
                             <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
                         {% endif %}
                     </ul>
-
                 </li>
             </ul>
         </div>
