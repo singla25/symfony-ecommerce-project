@@ -2,31 +2,38 @@
 
 {% block userContent %}
 
+    <!-- Hero Banner -->
     <div class="position-relative text-center w-100" style="height: 40vh; overflow: hidden;">
         <img src="{{ asset('img/banner/b4.png') }}" alt="bannerImage" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; filter: brightness(0.7);">
-
         <div class="position-absolute top-50 start-50 translate-middle px-5 text-white text-center" style="max-width: 600px;">
             <h2 class="fw-bold mb-2 display-5">#KnowUsMore</h2>
-            <p class="lead mb-4">More than just a brand — we are a journey of creativity, craftsmanship, and connection.</p>
+            <p class="lead mb-4">More than just a brand — a journey of creativity, craftsmanship, and connection.</p>
         </div>
     </div>
 
+    <!-- Who We Are Section -->
     <section class="py-5">
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-6 text-center">
-                    <img src="{{ asset('img/about/a6.jpg') }}" alt="About Us Image" class="img-fluid rounded shadow">
+                    <img src="{{ asset('img/about/a1.png') }}" alt="About Us Image" class="img-fluid rounded shadow">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="fw-bold mb-3">Who We Are?</h2>
+                    <h2 class="fw-bold mb-3">Who We Are</h2>
                     <p class="text-muted">
-                        At <strong>Cara</strong>, we believe fashion is more than just clothing — it’s a statement, an expression of who you are.
-                        Our mission is to bring you unique, high-quality pieces that empower your style and reflect your personality.
-                        From timeless classics to trend-setting designs, we curate every product with care and passion.
+                        At <strong>ShopNext</strong>, fashion is not just about clothing—it's a reflection of your identity.
+                        Our mission is to deliver premium-quality styles that are both accessible and affordable.
+                        Every product we craft is designed to empower your individuality, offering a perfect blend of comfort, authenticity, and trendsetting design.
                     </p>
                     <p class="text-muted">
-                        We started our journey with a simple goal: make premium fashion accessible to everyone.
-                        With a dedicated team and a strong focus on customer satisfaction, we’re here to redefine your shopping experience, one outfit at a time.
+                        Starting with a vision to redefine shopping experiences, we are committed to offering
+                        a unique collection that resonates with your personality. Whether you're shopping online or visiting our store, we’re here to make every moment count.
+                    </p>
+                    <p class="text-muted">
+                        Our vision is simple yet powerful — to inspire confidence in every person who wears ShopNext. We aim to create a space where fashion is inclusive, expressive, and made with heart.
+                    </p>
+                    <p class="text-muted">
+                        By combining online convenience with offline personal touch, we’re building a brand that values both digital and human connections. Every customer, every outfit, every smile — that’s what keeps us going.
                     </p>
                     <a href="{{ path('user_shop_page') }}" class="btn btn-outline-success mt-3 px-4 py-2">Explore Our Collection</a>
                 </div>
@@ -34,28 +41,31 @@
         </div>
     </section>
 
+    <!-- Offline Store Video Section -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <h2 class="fw-bold mb-4">Download Our <a href="#" class="text-success text-decoration-none">App</a></h2>
+            <h2 class="fw-bold mb-4">Experience ShopNext In Real Life</h2>
             <p class="text-muted mb-4">
-                Experience Cara on the go! Enjoy seamless shopping, exclusive offers, and early access to our newest collections right from your phone.
+                Love what you see online? Visit our offline store and immerse yourself in an atmosphere of creativity, vibrant collections, and personalized styling assistance.
             </p>
             <div class="ratio ratio-16x9 rounded shadow overflow-hidden" style="max-width: 800px; margin: 0 auto;">
-                <video src="{{ asset('img/about/1.mp4') }}" controls poster="{{ asset('img/about/a1.png') }}"></video>
+                <video src="{{ asset('img/about/video.mp4') }}" controls poster="{{ asset('img/about/a2.png') }}"></video>
             </div>
         </div>
     </section>
 
+    <!-- Why Choose Us Section -->
     <section class="py-5 features">
         <div class="px-5">
+            <h2 class="fw-bold text-center mb-5">Why Choose ShopNext?</h2>
             <div class="row g-4 justify-content-center">
                 {% set featureBoxs = [
-                    { name: 'Free Shipping', img: 'f1.png'},
-                    { name: 'Online Order', img: 'f2.png'},
-                    { name: 'Save Money', img: 'f3.png'},
-                    { name: 'Promotions', img: 'f4.png'},
-                    { name: 'Happy Sell', img: 'f5.png'},
-                    { name: '24/7 Support', img: 'f6.png'},
+                    { name: 'Free & Fast Shipping', img: 'f1.png'},
+                    { name: 'Hassle-Free Online Orders', img: 'f2.png'},
+                    { name: 'Affordable Premium Fashion', img: 'f3.png'},
+                    { name: 'Exclusive Offers & Promotions', img: 'f4.png'},
+                    { name: 'Customer-First Service', img: 'f5.png'},
+                    { name: '24/7 Friendly Support', img: 'f6.png'},
                 ] %}
 
                 {% for featureBox in featureBoxs %}
@@ -72,12 +82,13 @@
         </div>
     </section>
 
+    <!-- Newsletter Section -->
     <section class="newLetter py-5" style="background: linear-gradient(135deg, #0c2a4d, #183d5a);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <h2 class="text-white fw-bold mb-2">Sign Up For Newsletters</h2>
-                    <p class="text-white-50 mb-0">Get E-mail updates about our latest shop and <span class="text-warning fw-semibold">special offers.</span></p>
+                    <h2 class="text-white fw-bold mb-2">Stay Updated with ShopNext</h2>
+                    <p class="text-white-50 mb-0">Subscribe to our newsletter and be the first to know about <span class="text-warning fw-semibold">exclusive offers, flash sales, and new arrivals.</span></p>
                 </div>
                 <div class="col-md-6">
                     {{ form_start(form, {'attr': {'class': 'd-flex'}}) }}
@@ -90,4 +101,3 @@
     </section>
 
 {% endblock %}
-
