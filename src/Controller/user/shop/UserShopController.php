@@ -27,7 +27,6 @@ class UserShopController extends AbstractController
     public function productDetails(ProductRepository $productRepository, $id): Response
     {
         $productDetail = $productRepository->find($id);
-
         $relatedProducts = $productRepository->createQueryBuilder('p')
             ->where('p.productType = :type')
             ->andWhere('p.id != :id')
@@ -59,7 +58,7 @@ class UserShopController extends AbstractController
 
         $cart->setUserId($this->getUser()->getId());
         $cart->setProductImage($request->request->get('productImage'));
-        $cart->setProductId((string) $request->request->get('productid'));
+        $cart->setProductId((string) $request->request->get('productId'));
         $cart->setProductName($request->request->get('productName'));
         $cart->setPrice((float) $request->request->get('productPrice'));
         $cart->setSize($request->request->get('size'));
@@ -76,12 +75,35 @@ class UserShopController extends AbstractController
         ]);
     }
 
-    #[Route('/cart', name: 'cart_page')]
-    public function cart(CartRepository $cartRepository): Response
+    #[Route('/cart/{id}', name: 'cart_page', defaults: ['id' => null])]
+    public function cart(CartRepository $cartRepository, ProductRepository $productRepository, $id): Response
     {
         $cartProduct = $cartRepository->findAll();
+
+        // If no ID is passed, pick first product in cart for recommendations
+        if (!$id && !empty($cartProduct)) {
+            $id = $cartProduct[0]->getProductId();
+        }
+
+        $relatedProducts = [];
+
+        if ($id) {
+            $productDetail = $productRepository->find($id);
+            if ($productDetail) {
+                $relatedProducts = $productRepository->createQueryBuilder('p')
+                    ->where('p.productType = :type')
+                    ->andWhere('p.id != :id')
+                    ->setParameter('type', $productDetail->getProductType())
+                    ->setParameter('id', $id)
+                    ->setMaxResults(3)
+                    ->getQuery()
+                    ->getResult();
+            }
+        }
+
         return $this->render('user/product/cart.html.twig', [
             'products' => $cartProduct,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 }
