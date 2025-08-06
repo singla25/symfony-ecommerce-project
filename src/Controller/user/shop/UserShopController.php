@@ -106,4 +106,13 @@ class UserShopController extends AbstractController
             'relatedProducts' => $relatedProducts,
         ]);
     }
+
+    #[Route('/delete/{id}', name: 'deleteProductCart')]
+    public function deleteProductCart(CartRepository $cartRepository, EntityManagerInterface $em, $id): Response
+    {
+        $cartItem = $cartRepository->findOneBy(['productId' => $id]);
+        $em->remove($cartItem);
+        $em->flush();
+        return $this->redirectToRoute('user_cart_page');
+    }
 }

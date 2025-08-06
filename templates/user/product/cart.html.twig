@@ -26,7 +26,6 @@
                         {% set total = total + subtotal %}
 
                         <div class="row align-items-center py-3 border-bottom">
-
                             <div class="col-3 d-flex justify-content-center">
                                 <img src="{{ asset('img/products/' ~ product.productImage) }}"
                                      class="img-fluid"
@@ -51,8 +50,12 @@
                                                value="{{ product.quantity }}" min="1">
                                     </label>
                                 </div>
-                                <button type="button" href="#" class="btn btn-danger">Delete</button> |
-                                <button type="button" href="#" class="btn btn-warning">Save for later</button>
+                                <a href="{{ path('user_deleteProductCart', { 'id': product.productId }) }}"
+                                   class="btn btn-danger">
+                                    Delete
+                                </a>
+                                |
+                                <a href="#" class="btn btn-warning">Save for later</a>
                             </div>
 
                             <!-- Price Section -->
@@ -121,7 +124,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
