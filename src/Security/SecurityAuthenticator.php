@@ -2,6 +2,8 @@
 
 namespace App\Security;
 
+use App\Entity\LoginAndSignUp\User;
+use App\Service\SessionHelper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +24,7 @@ class SecurityAuthenticator extends AbstractLoginFormAuthenticator
 
     public const LOGIN_ROUTE = 'app_login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator, private readonly SessionHelper $sessionHelper)
     {
     }
 
@@ -47,9 +49,17 @@ class SecurityAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
+        $user = $token->getUser();
+        if(!($user instanceof User))
+        {
+            $request->getSession()->getFlashBag()->add('warning',['status'=> 0, 'msg' => 'User is not authenticated.']);
+            return new RedirectResponse($this->urlGenerator->generate('app_login'));
+        }
+
+        $this->sessionHelper->setUserSession($request, $user);
 
         // For example:
-         return new RedirectResponse($this->urlGenerator->generate('user_home_page'));
+        return new RedirectResponse($this->urlGenerator->generate('user_home_page'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
