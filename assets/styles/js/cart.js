@@ -5,6 +5,7 @@ $(document).on('click', '[data-type="addToCart"], [data-type="buyNow"]', functio
     e.preventDefault();
 
     let button = $(this);
+    let badgeValue = $(this).data('badge-value')+1;
     let buttonType = $(this).data('type');
     let productId = $(this).data('product-id');
     let productImage = $(this).data('product-photo');
@@ -13,7 +14,6 @@ $(document).on('click', '[data-type="addToCart"], [data-type="buyNow"]', functio
     let selectedSize = $('#productSize').val();
     let quantity = parseInt($('#productQuantity').val()) || 1;
     let subTotal = productPrice * quantity;
-    let badgeValue = $(this).data('badge-value')+1;
 
     $.ajax({
         type: "POST",

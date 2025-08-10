@@ -49,14 +49,20 @@ class SecurityAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
+        // store user url like /user/contact before login so that after login user redirect to same page
+
         $user = $token->getUser();
         if(!($user instanceof User))
         {
-            $request->getSession()->getFlashBag()->add('warning',['status'=> 0, 'msg' => 'User is not authenticated.']);
+            $request->getSession()->getFlashBag()->add('warning',
+                ['status'=> 0, 'msg' => 'User is not authenticated.']
+            );
             return new RedirectResponse($this->urlGenerator->generate('app_login'));
         }
+        // check user authentication from User class
 
         $this->sessionHelper->setUserSession($request, $user);
+        // store user in session
 
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('user_home_page'));

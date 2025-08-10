@@ -9,20 +9,18 @@ use Twig\TwigFunction;
 
 class AppFunctions extends AbstractExtension
 {
-
     public function __construct(private readonly CartRepository $cartRepository, private readonly RequestStack $requestStack)
     {
-
     }
 
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('cartBadgeValue', [$this, 'cartBadgeValue']),
+            new TwigFunction('cartBadgeValue', [$this, 'cartBadge']),
         ];
     }
 
-    public function cartBadgeValue()
+    public function cartBadge(): int
     {
         $userId = $this->requestStack->getSession()->get('userId');
         return count($this->cartRepository->getBadgeValueByUser($userId) ?? 0);
